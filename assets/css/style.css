@@ -1,0 +1,124 @@
+*{
+    font-family: Montserrat;
+}
+html{
+    width: 100%;
+    min-height: 100%;
+}
+.top-border{
+    max-width: 100%;
+    height: 7px;
+    background-color: #1c964e;
+    margin-bottom: 20px;
+}
+.usc-logo{
+    width: 110px;
+    height: auto;
+    
+}
+.mycenter{
+    text-align: center;
+}
+
+.myinverted{
+    color: #1c964e;
+}
+.ui.myinverted.top.attached.header {
+  background: #1c964e -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #1c964e linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  box-shadow: none;
+    color: #ffffff;
+    border-color: #1c964e;
+
+}
+
+.ui.header {
+  border: none;
+  margin: -webkit-calc(2rem -  0.165em ) 0em 1rem;
+  margin: calc(2rem -  0.165em ) 0em 1rem;
+  padding: 0em 0em;
+  font-family: 'Montserrat Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 1.33em;
+  text-transform: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.ui.header .sub.header {
+  font-size: 1.0714rem;
+  font-weight: normal;
+  margin: 0em;
+  padding: 0em;
+  line-height: 1.2em;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.ui.header:first-child {
+  margin-top: -0.165em;
+}
+
+.ui.header:last-child {
+  margin-bottom: 0em;
+}
+label{
+    font-family: 'Montserrat Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+/* a{
+    color: #1c964e;
+    font-style: italic;
+    font-family: Gerogia;
+}
+a:hover{
+    color: #29b764;
+} */
+.mini-link{
+    padding: 10px 2px;
+    text-align: right;
+      font-size: 13.5px;   
+}
+
+
+.mysubhead{
+    letter-spacing: -0.5px;
+}
+@media screen and (max-width: 767px) {
+    .top-border{
+        margin-bottom: 10px;
+    }
+}
+.footer{
+  background-color: #454545;
+  position: absolute;
+ font-size: 0.81304286em;
+  left: 0;
+  width: 100%;
+    margin-top: 150px;
+    padding-bottom: 15px;
+    color: #e5e5e5;
+}
+#footer1{
+    overflow: hidden;
+    height: 130px;
+    
+}
+#footer2{
+ 
+}
+#footer3{
+}
+#footer3 a,#footer4 a{
+    display: block;
+    color: #e5e5e5;
+}
+#footer3 a:hover,#footer4 a:hover{
+    color: #1c964e;
+}
+#footer4{
+
+}
+#footer5{
+    font-size: 0.88977429em;
+}
