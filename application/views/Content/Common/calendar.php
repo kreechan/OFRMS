@@ -15,56 +15,47 @@
 			navLinks: true, // can click day/week names to navigate views
 			selectable: true,
 			selectHelper: true,
-			select: function(start, end) {
-				var title = prompt('Event Title:');
-				var eventData;
-				if (title) {
-					eventData = {
-						title: title,
-						start: start,
-					
-					};
-					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-				}
-				$('#calendar').fullCalendar('unselect');
-			},
+			
 			editable: false,    //dragable
-			eventLimit: 2, // allow "more" link when too many events
+			eventLimit: 1, // allow "more" link when too many events
 			events: [
-				{
-					title: '2',
+                {
+					title: 'Conference',
+					start: '2016-08-31'
+				},
+               
+                {
+					title: 'Film Viewing',
 					start: '2016-09-01'
 				},
 				{
 					id: 999,
-					title: '4',
+					title: 'ONJT Seminar',
 					start: '2016-09-09'
 				},
 				{
 					id: 999,
-					title: '2',
+					title: 'Symposium',
 					start: '2016-09-16'
 				},
 				{
-					title: '3',
+					title: 'Halaj Seminar',
 					start: '2016-09-11',
 				}
 				
 			],
-            eventClick: function(event) {
-                alert("hello");
-                 $('.ui.dropdown')
-                     .dropdown({transition: 'drop'});
-            }
+           dayClick: function(date, jsEvent, view) {
+               $('.ui.small.modal').modal('show'); 
+
+
+    }
 		});
-		
 	});
 
 </script>
 <style>
    
 	body {
-        
 		padding: 0;
 		font-family: "Montserrat",Helvetica,Arial,Verdana,sans-serif;
 		font-size: 14px;
@@ -75,17 +66,7 @@
 		margin: 0 auto;
 		
 	}
-     .fc-event{
-        display: inline-block;
-    width:55px;
-    height:55px;
-    border-radius:250px;
-    font-size:23px;
-    color:#fff;
-    line-height:55px;
-    text-align:center;
-    text-decoration: none;
-    } 
+    
 
     .fc-toolbar{
         background-color: #24a033;
@@ -97,24 +78,21 @@
     .fc-center{
         color: #fff;
     }
-.fc-day:hover{
-    background:#dcffe5;
-    cursor: pointer;
-}
+
 /*Allow pointer-events through*/
 .fc-slats, /*horizontals*/
 .fc-content-skeleton, /*day numbers*/
-.fc-bgevent-skeleton /*events container*/{
-    pointer-events:none
+.fc-bgevent-skeleton,
+    .fc-day /*events container*/{
+
+    cursor: pointer;
 }
 
 /*Turn pointer events back on*/
 .fc-bgevent,
 .fc-event-container{
     pointer-events:auto; /*events*/
-    position: relative;
-     display: table;
-        margin: 0 auto;
+text-align:;
 }
     th span{
         color:
@@ -123,7 +101,33 @@
         color:#353936; 
 }
 </style>
-
-
+<div class="ui small modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Archive Old Messages
+  </div>
+  <div class="image content">
+    <div class="image">
+      <i class="archive icon"></i>
+    </div>
+    <div class="description">
+      <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="two fluid ui inverted buttons">
+      <div class="ui cancel red basic inverted button">
+        <i class="remove icon"></i>
+        No
+      </div>
+      <div class="ui ok green basic inverted button">
+        <i class="checkmark icon"></i>
+        Yes
+      </div>
+    </div>
+  </div>
+</div>
 	<div id='calendar'></div>
+	
+	
 
