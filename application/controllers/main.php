@@ -20,8 +20,8 @@ class main extends CI_Controller {
 	 */
 	public function index()
 	{
-    $this->load->view('Header/admin/adminHeader');
-    $this->load->view('Content/common/calendar');
+    //$this->load->view('Header/admin/adminHeader');
+    $this->load->view('Content/common/registration');
     $this->load->view('Footer/footer');
         
 	}
