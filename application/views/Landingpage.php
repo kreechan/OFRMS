@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/css/semantic.css">
-<link rel="stylesheet" href=" assets/css/style.css">
-<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/semantic.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
+<!-- <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'> -->
+<script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/semantic.min.js"></script>
 
     <title></title>
 </head>
@@ -18,14 +17,15 @@
 
 <div class="ui stackable grid">
   <div class="right floated seven wide column ">
-      <form class="ui form">
+    
+      <form class="ui form" action="http://localhost/OFRMS/main/login_validation" method="post" accept-charset="utf-8">
         <div class="three fields">
             <div class="field">
-               <input class="" name="first-name" placeholder="Username" type="text">
+               <input name="email" placeholder="Username" type="text">
                <!-- <a class="forgotpass" href="">Forgot Password</a> -->
             </div>
             <div class="field">
-               <input name="first-name" placeholder="Password" type="password">
+               <input name="password" placeholder="Password" type="password">
             </div>
             <div class="field">
                <div class="ui stackable grid">
@@ -33,11 +33,15 @@
                 <div class="column"><button class="ui mybutton tiny button fluid" type="submit">LOGIN</button></div>
                 </div>
                 </div>
+                
             </div>
+            
         </div>
       </form>
+       <span style="color:#de3939;"><?php echo validation_errors(); ?></span>
   </div>
 </div> 
+
 
 <div class="ui container" style="min-height:60%;">
 <div class="ui stackable grid">
@@ -47,12 +51,12 @@
 </div> 
 <div class="ui stackable grid">
     <div class="one wide column center-logo tablet only" style="bac2kground-color:green;">
-        <img class="usc-logo" src="assets/images/usc-logo.png" alt="">
+        <img class="usc-logo" src="<?php echo base_url(); ?> assets/images/usc-logo.png" alt="">
     </div> 
 </div> 
 <div class="ui stackable grid">
     <div class="two wide column center-logo large screen only" style="bac2kground-color:green;">
-        <img class="usc-logo" src="assets/images/usc-logo.png" alt="">
+        <img class="usc-logo" src="<?php echo base_url(); ?>assets/images/usc-logo.png" alt="">
     </div> 
 
     <div class="twelve wide column" style="ba2ckground-color:red;">
@@ -72,7 +76,7 @@
   </div>
 </div>       
 </div>  
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/semantic.js"></script>
+<script src="<?php base_url(); ?>assets/js/jquery.js"></script>
+<script src="<?php base_url(); ?>assets/js/semantic.js"></script>
 </body>
 </html>

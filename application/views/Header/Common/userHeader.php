@@ -3,11 +3,11 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/css/semantic.css">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/semantic.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 <!-- <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'> -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/semantic.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/semantic.min.js"></script>
 
     <title>USC - Online Facility Reservation and Managment System - Change Password</title>
     
@@ -26,10 +26,11 @@
         <a class="ui item">
         <div class="ui floating dropdown"><i class="user icon"></i>My Profile <i class="dropdown icon"></i>
             <div class="menu transition hidden">
-                <div class="item" data-value="1"><i class="settings icon"></i>My Account</div>
-                <div class="item" data-value="2">Change Password</div>
+                <a class="item" data-value="1"><i class="settings icon"></i>My Account</a>
+                <a class="item" data-value="2">Change Password</a>
                 <div class="ui divider"></div>
-                <div class="item" data-value="3"><i class="power icon"></i>Logout</div>     
+                <a href="<?php echo base_url('main/logout'); ?> " class="item" data-value="3"> <i class="power icon"></i>Logout</a>  
+  
             </div>
         </div>
         </a>

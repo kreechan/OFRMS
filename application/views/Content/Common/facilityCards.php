@@ -3,7 +3,7 @@
  <div class="ui link centered cards five doubling" > <!-- or use "three doubling" -->
   <div class="card">
     <div class="image">
-      <img src="assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
     </div>
     <div class="content">
       <div class="header">Rigney Hall</div>
@@ -21,7 +21,7 @@
   </div>
   <div class="card">
     <div class="image">
-      <img src="assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
     </div>
     <div class="content">
       <div class="header">SAS Audio Visual Room</div>
@@ -39,7 +39,7 @@
   </div>
   <div class="card">
     <div class="image">
-      <img src="assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
     </div>
     <div class="content">
       <div class="header">Basketball Court</div>
@@ -59,7 +59,7 @@
   </div>
   <div class="card">
     <div class="image">
-      <img src="assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
     </div>
     <div class="content">
       <div class="header">Philip Van Engelen</div>
@@ -77,7 +77,7 @@
   </div>
   <div class="card">
     <div class="image">
-      <img src="assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
     </div>
     <div class="content">
       <div class="header">Michael Richartz Theater</div>
@@ -95,7 +95,7 @@
   </div>
   <div class="card">
     <div class="image">
-      <img src="assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
     </div>
     <div class="content">
       <div class="header">SAFAD Theater</div>
@@ -113,7 +113,7 @@
   </div>
   <div class="card">
     <div class="image">
-      <img src="assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
     </div>
     <div class="content">
       <div class="header">Hoeppner Hall</div>
@@ -131,7 +131,7 @@
   </div>
   <div class="card">
     <div class="image">
-      <img src="assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
     </div>
     <div class="content">
       <div class="header">Hoeppner Hall</div>
@@ -149,7 +149,7 @@
   </div>
   <div class="card">
     <div class="image">
-      <img src="assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
     </div>
     <div class="content">
       <div class="header">????????</div>

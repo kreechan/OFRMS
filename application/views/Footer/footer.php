@@ -3,7 +3,7 @@
  <div class="top-border"></div>
   <div class="ui container">
   <div class="ui grid">
-   <div id="footer1" class="four wide column" style=" background:url('assets/images/picmust.png');
+   <div id="footer1" class="four wide column" style=" background:url('<?php echo base_url(); ?>assets/images/picmust.png');
     background-size:cover;">
     </div>
   <div id="footer2" class="five wide column"> <!-- Mission.Vission   -->
