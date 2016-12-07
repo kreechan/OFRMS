@@ -1,10 +1,37 @@
 <?php
 Class Model_users extends CI_Model
 {
+	
+	
+	public function register_insert($data){
+
+		$condition = "email =" . "'" . $data['email'] . "'";
+		$this->db->select(*);
+		$this->db->from('test');
+		$this->db->where($condition);
+		$this->db->limit(1);
+		$query = $this->db->get();
+			if($query->num_rows() == 0){
+
+				$this->db->insert('test', $data);
+				if($this->affected_rows() > 0){
+					return true;
+				}
+
+				}else{
+					return false;
+				}
+
+				//$this->db->insert('test', $data);
+			}
+
+	
+
+
 	function can_log_in()
 	{
 		$this -> db -> where('email', $this->input->post('email'));
-		$this -> db -> where('password', md5($this->input->post('password')));
+		$this -> db -> where('password', ($this->input->post('password')));
 		$query = $this -> db -> get('users');
 
 		if($query -> num_rows() == 1)
