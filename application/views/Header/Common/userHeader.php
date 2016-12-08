@@ -14,8 +14,9 @@
 </head>
 
 <body>
-<div class="top-border"></div>
-<div class="ui container">
+<div class="top-border"><h1>UNIVERSITY OF SAN CARLOS</h1>
+<p>Online Facility Reservation and Management System</p></div>
+<div class="ui container" style="height:200px;" >
        
 <div class="ui secondary pointing menu stackable">
     <a class="item">Home</a>
@@ -41,9 +42,9 @@
 
 <script>
  $(document).ready(function(){
-    $('.ui.dropdown').dropdown({transition: 'drop'});
+    $('.ui.dropdown').dropdown({transition: 'drop', action: 'combo',debug: true,});
     $('#approve').click(function(){
 	   $('.ui.small.modal').modal('show'); 
-}); 
+});
 });
 </script>

@@ -32503,7 +32503,7 @@ a.ui.nag {
 ---------------*/
 
 .ui.fluid.popup {
-  width: 100%;
+  width: 20% ;
   max-width: none;
 }
 

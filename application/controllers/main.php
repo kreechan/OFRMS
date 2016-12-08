@@ -26,7 +26,9 @@ class main extends CI_Controller {
     }
     
     public function restricted(){
-        $this->load->view('restricted');
+        $this->load->view('header/common/userheader');
+        $this->load->view('content/common/restricted');
+        $this->load->view('footer/footer');
     }
     
      public function login_validation(){
