@@ -18,7 +18,7 @@
 <div class="ui stackable grid">
   <div class="right floated seven wide column ">
     
-      <form class="ui form" action="http://localhost/OFRMS/main/login_validation" method="post" accept-charset="utf-8">
+      <form class="ui form" action="<?php echo base_url(); ?>main/login_validation" method="post" accept-charset="utf-8">
         <div class="three fields">
             <div class="field">
                <input name="email" placeholder="Username" type="text">
@@ -30,7 +30,9 @@
             <div class="field">
                <div class="ui stackable grid">
                <div class="nine wide column">
-                <div class="column"><button class="ui mybutton tiny button fluid" type="submit">LOGIN</button></div>
+                  <div class="column"><button class="ui mybutton tiny button fluid" type="submit">LOGIN</button>
+                      <a href="<?php echo base_url() ?>main/registration_show">To SignUp Click Here</a>
+                  </div>
                 </div>
                 </div>
                 
