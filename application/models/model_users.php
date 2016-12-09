@@ -6,15 +6,15 @@ Class Model_users extends CI_Model
 	public function register_insert($data){
 
 		$condition = "email =" . "'" . $data['email'] . "'";
-		$this->db->select(*);
+		$this->db->select('email');
 		$this->db->from('test');
 		$this->db->where($condition);
 		$this->db->limit(1);
-		$query = $this->db->get();
+		$query = $this-> db ->get();
 			if($query->num_rows() == 0){
 
-				$this->db->insert('test', $data);
-				if($this->affected_rows() > 0){
+				$this-> db ->insert('test', $data);
+				if($this->db->affected_rows() > 0){
 					return true;
 				}
 
@@ -22,10 +22,14 @@ Class Model_users extends CI_Model
 					return false;
 				}
 
-				//$this->db->insert('test', $data);
+				$this->db->insert('test', $data);
 			}
 
-	
+			//$this->load->database();
+			//$this->db->insert('test', $data);
+
+
+	//}
 
 
 	function can_log_in()

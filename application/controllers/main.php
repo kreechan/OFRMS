@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class main extends CI_Controller {
 
 
+       
+
 	public function index()
 	{
     $this->login();
@@ -20,30 +22,53 @@ class main extends CI_Controller {
 
     public function new_user_register(){
 
+        
+        $this->load->helper(array('form','url'));
+
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('firstname','Firstname', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('lastname','Lasstname', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('password','Password', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('email','Email', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('department','Department', 'trim|required|xss_clean');
 
-        if($this->form_validation->run() == FALSE){
+        $this->form_validation->set_rules('firstname' , 'Firstname' , 'required');
+        $this->form_validation->set_rules('lastname' , 'Lastname' , 'required');
+        $this->form_validation->set_rules('password' , 'Password' , 'required');
+        $this->form_validation->set_rules('email' , 'Email' , 'required');
+        $this->form_validation->set_rules('department' , 'Department' , 'required');
+
+        if($this->form_validation->run()== FALSE){
 
            // $this->load->view('content/common/registration_view');
             $this->load->view('content/common/registration_view');
         }else{
 
-            $data= array(
+           /* $data= array(
 
                 'firstname' =>$this->input->post('firstname'),
                 'lastname' =>$this->input->post('lastname'),
                 'password' =>$this->input->post('password'),
                 'email' =>$this->input->post('email'),
-                'department' =>$this->input->post('department')
-            );
+                'department' =>$this->input->post('department')*/
 
-            $result= $this->model_user->register_insert($data);
+                $this->load->model('model_users');
+
+                $fname = $this->input->post('firstname');
+                $lname = $this->input->post('lastname');
+                $pw = $this->input->post('password');
+                $user_email = $this->input->post('email');
+                $dept = $this->input->post('department');
+
+                $data = array(
+
+                    'firstname' => $fname,
+                    'lastname' => $lname,
+                    'password' => $pw,
+                    'email' => $user_email,
+                    'department' => $dept,
+
+                    );
+
+            
+
+            $result= $this->model_users->register_insert($data);
 
                 if($result == TRUE){
 
@@ -56,6 +81,25 @@ class main extends CI_Controller {
                 }
             
         }
+
+      /*  $this->load->model('model_users');
+
+        $fname = $this->input->post('firstname');
+        $lname = $this->input->post('lastname');
+        $pw = $this->input->post('password');
+        $user_email = $this->input->post('email');
+        $dept = $this->input->post('department');
+
+        $data = array(
+
+            'firstname' => $fname,
+            'lastname' => $lname,
+            'password' => $pw,
+            'email' => $user_email,
+            'department' => $dept,
+
+            );
+        $this->model_users->register_insert($data); */
 
     }
    

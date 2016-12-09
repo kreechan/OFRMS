@@ -20,8 +20,7 @@
 <div class="top-border"></div>
 <div class="ui container" style="min-height:65%; ">
 <div class="ui very padded raised text container segment">
- <form class="ui form mycenter">
- <?php echo form_open('main/new_user_register'); ?>
+ <form class="ui form mycenter" action = "<?php echo base_url() ?>main/new_user_register" method="post">
   <h3>Create an Account</h3><br><br>
   <div class=" field">
    <div class="ui grid">
