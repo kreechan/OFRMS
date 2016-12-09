@@ -40,14 +40,7 @@ class main extends CI_Controller {
             $this->load->view('content/common/registration_view');
         }else{
 
-           /* $data= array(
-
-                'firstname' =>$this->input->post('firstname'),
-                'lastname' =>$this->input->post('lastname'),
-                'password' =>$this->input->post('password'),
-                'email' =>$this->input->post('email'),
-                'department' =>$this->input->post('department')*/
-
+        
                 $this->load->model('model_users');
 
                 $fname = $this->input->post('firstname');
