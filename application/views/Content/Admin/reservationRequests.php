@@ -1,5 +1,6 @@
 <!-- Start of body content -->
 
+
 <h3 class="ui myinverted top attached header">
   RESERVATION REQUEST
 </h3>
@@ -13,7 +14,49 @@
   <div class="ui three column grid stackable fluid">
       <div class="column mycenter">FILM SHOWING</div>
         <div class="column mycenter">
-            <button class="small ui myinverted blue basic button" id="approve">View Details</button>
+          
+           <div class="ui detail-popup">
+            <button class="small  ui myinverted blue basic button item">View Details</button>
+            </div>
+<div class="ui flowing popup top left transition hidden">
+  <div class="ui four column relaxed equal height divided grid">
+    <div class="column">
+      <h4 class="ui header">Fabrics</h4>
+      <div class="ui link list">
+        <a class="item">Cashmere</a>
+        <a class="item">Linen</a>
+        <a class="item">Cotton</a>
+        <a class="item">Viscose</a>
+      </div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Size</h4>
+      <div class="ui link list">
+        <a class="item">Small</a>
+        <a class="item">Medium</a>
+        <a class="item">Large</a>
+        <a class="item">Plus Sizes</a>
+      </div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Colored</h4>
+      <div class="ui link list">
+        <a class="item">Neutrals</a>
+        <a class="item">Brights</a>
+        <a class="item">Pastels</a>
+      </div>
+    </div>
+    <div class="column">
+      <h4 class="ui header">Types</h4>
+      <div class="ui link list">
+        <a class="item">Knitwear</a>
+        <a class="item">Outerwear</a>
+        <a class="item">Pants</a>
+        <a class="item">Shoes</a>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
       <div class="column mycenter">
           <button class="ui mybutton button">APPROVED</button>
@@ -23,7 +66,7 @@
    <div class="ui three column grid stackable fluid">
       <div class="column mycenter">ICT Orientation</div>
       <div class="column mycenter">
-          <button class="small ui myinverted blue basic button" id="approve">View Details</button>
+          <button class="small ui myinverted blue basic button">View Details</button>
       </div>
       <div class="column mycenter">
         <button class="ui mybutton button">APPROVED</button>
@@ -33,42 +76,13 @@
   
 </div>
    
-<!-- MODALS -->
+<!-- POPUP -->
    
-</div>
-<div class="ui small modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Archive Old Messages
-  </div>
-  <div class="image content">
-    <div class="image">
-      <i class="archive icon"></i>
-    </div>
-    <div class="description">
-      <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
-    </div>
-  </div>
-  <div class="actions">
-    <div class="two fluid ui inverted buttons">
-      <div class="ui cancel red basic inverted button">
-        <i class="remove icon"></i>
-        No
-      </div>
-      <div class="ui ok green basic inverted button">
-        <i class="checkmark icon"></i>
-        Yes
-      </div>
-    </div>
-  </div>
-</div>
+   
+
+
+
 <script>
- $(document).ready(function(){
-    $('.ui.dropdown').dropdown({transition: 'drop'});
-    $('#approve').click(function(){
-	   $('.ui.small.modal').modal('show'); 
-}); 
-});
 </script>
 </body>
 </html>

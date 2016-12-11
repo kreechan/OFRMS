@@ -1,44 +1,54 @@
 <!-- Start of body content -->
 
-<h3 class="ui myinverted top attached header">
-  Manage Facility
-</h3>
-<div class="ui attached segment ">
+
+
  
  <div class="ui cards mycenter centered">
   <div class="card">
     <div class="content">
-      <div class="header">Manage Facility Reservation Request</div>
+      <div class="header">Manage Facility Booking</div>
       <div class="description">
         Elliot Fu is a film-maker from New York.
       </div>
     </div>
-    <div class="ui bottom attached mybutton button">
+    <a href="<?php echo site_url('superadmin/index');  ?>" class="ui bottom attached mybutton button">
       <i class="configure icon"></i>
       ENTER
-    </div>
+    </a>
   </div>
   <div class="card">
     <div class="content">
-      <div class="header">Manage USC Facilities</div>
+      <div class="header">Manage Users</div>
       <div class="description">
         Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
       </div>
     </div>
-    <div class="ui bottom attached mybutton button">
+    <a class="ui bottom attached mybutton button">
       <i class="add circle icon"></i>
       ADD / DELETE
+    </a>
+  </div>
+   <div class="card">
+    <div class="content">
+      <div class="header">Manage Facility</div>
+      <div class="description">
+        Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+      </div>
     </div>
+    <a class="ui bottom attached mybutton button">
+      <i class="add circle icon"></i>
+      ADD / DELETE
+    </a>
   </div>
  
      
 </div>
  
-</div>
+
    
 <!-- MODALS -->
    
-</div>
+
 <div class="ui small modal">
   <i class="close icon"></i>
   <div class="header">

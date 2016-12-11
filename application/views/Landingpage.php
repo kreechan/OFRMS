@@ -6,8 +6,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/semantic.css">
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 <!-- <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/icon.min.css'> -->
-<script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/semantic.min.js"></script>
+
 
     <title></title>
 </head>
@@ -22,19 +21,21 @@
         <div class="three fields">
             <div class="field">
                <input name="email" placeholder="Username" type="text">
-               <!-- <a class="forgotpass" href="">Forgot Password</a> -->
+ 
             </div>
             <div class="field">
                <input name="password" placeholder="Password" type="password">
+               <a style="color:#1c964e; font-size: 85%;" href="">Forgot Password</a>
             </div>
             <div class="field">
                <div class="ui stackable grid">
                <div class="nine wide column">
                   <div class="column"><button class="ui mybutton tiny button fluid" type="submit">LOGIN</button>
-                      <a href="<?php echo base_url() ?>main/registration_show">To SignUp Click Here</a>
+                      
                   </div>
+                  
                 </div>
-                </div>
+                </div><a href="<?php echo base_url() ?>main/registration_show">To SignUp Click Here</a>
                 
             </div>
             
@@ -48,17 +49,17 @@
 <div class="ui container" style="min-height:60%;">
 <div class="ui stackable grid">
     <div class="one wide column mycenter mobile only" style="bac2kground-color:green;">
-        <img class="usc-logo" src="assets/images/usc-logo.png" alt="">
+        <img class="usc-logo" src="<?php echo base_url(); ?>assets/images/usc-logo.png" alt="1">
     </div> 
 </div> 
 <div class="ui stackable grid">
     <div class="one wide column center-logo tablet only" style="bac2kground-color:green;">
-        <img class="usc-logo" src="<?php echo base_url(); ?> assets/images/usc-logo.png" alt="">
+        <img class="usc-logo" src="<?php echo base_url(); ?>assets/images/usc-logo.png" alt="2">
     </div> 
 </div> 
 <div class="ui stackable grid">
     <div class="two wide column center-logo large screen only" style="bac2kground-color:green;">
-        <img class="usc-logo" src="<?php echo base_url(); ?>assets/images/usc-logo.png" alt="">
+        <img class="usc-logo" src="<?php echo base_url(); ?>assets/images/usc-logo.png" alt="3">
     </div> 
 
     <div class="twelve wide column" style="ba2ckground-color:red;">
@@ -78,7 +79,6 @@
   </div>
 </div>       
 </div>  
-<script src="<?php base_url(); ?>assets/js/jquery.js"></script>
-<script src="<?php base_url(); ?>assets/js/semantic.js"></script>
+
 </body>
 </html>

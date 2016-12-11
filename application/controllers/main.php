@@ -65,8 +65,9 @@ class main extends CI_Controller {
 
                 if($result == TRUE){
 
-                    $data['message_display'] = 'Registration Successfully !';
-                    $this->load->view('Landingpage', $data);
+                        $message = "User Succesfully Added! (send email)";
+                            echo "<script type='text/javascript'>alert('$message');</script>";
+                        $this->load->view('Landingpage', $data);
                 }else{
 
                     $data['message_display'] = 'Email Already Exist';
@@ -101,7 +102,7 @@ class main extends CI_Controller {
         if($this->session->userdata('is_logged_in'))
         {
             $this->load->view('header/common/userheader');
-            $this->load->view('content/common/facilitycards');
+            $this->load->view('content/admin/superadmin/managefacility');
             $this->load->view('footer/footer');
        }
         else{

@@ -19,38 +19,38 @@
  <!-- ADMIN HEADER-->
 <div class="top-border"></div>
 <div class="ui container" style="min-height:65%; ">
-<div class="ui very padded raised text container segment">
- <form class="ui form mycenter" action = "<?php echo base_url() ?>main/new_user_register" method="post">
+<div class="ui very padded raised text container segment">    
+ <form  class="ui form mycenter" action = "<?php echo base_url() ?>main/new_user_register" method="post">
   <h3>Create an Account</h3><br><br>
   <div class=" field">
    <div class="ui grid">
    
     <div class="five wide column right aligned"><label>First Name</label></div>
-    <div class="eleven wide column"><input type="text" name="firstname"></div>
+    <div class="eleven wide column"><input type="text" name="firstname" autocomplete="new-firstname"></div>
     
     </div>
   </div>
   <div class=" field">
     <div class="ui grid">
      <div class="five wide column right aligned"><label>Last Name</label></div>
-    <div class="eleven wide column"><input type="text" name="lastname"></div>
+    <div class="eleven wide column"><input type="text" name="lastname" autocomplete="new-lastname"></div>
   </div>
     </div>
   <br>
   <div class=" field">
     <div class="ui grid">
      <div class="five wide column right aligned"><label>Password</label></div>
-    <div class="eleven wide column"><input type="text" name="password"></div>
+    <div class="eleven wide column"><input type="password" name="password" autocomplete="new-password"></div>
   </div>
      </div>
   <div class=" field"><div class="ui grid">
      <div class="five wide column right aligned"><label>Email</label></div>
-    <div class="eleven wide column"><input type="text" name="email"></div>
+    <div class="eleven wide column"><input type="text" name="email" autocomplete="new-email"></div>
   </div>
      </div>
      <div class=" field"><div class="ui grid">
      <div class="five wide column right aligned"><label>Department</label></div>
-    <div class="eleven wide column"><input type="text" name="department"></div>
+    <div class="eleven wide column"><input type="text" name="department" autocomplete="new-department"></div>
   </div>
      </div>
      

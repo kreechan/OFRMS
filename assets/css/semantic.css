@@ -31412,6 +31412,7 @@ select.ui.dropdown {
 
 .ui.active.modal {
   display: block;
+    padding: 15px;
 }
 
 /*******************************

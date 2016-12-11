@@ -43,7 +43,19 @@
  $(document).ready(function(){
     $('.ui.dropdown').dropdown({transition: 'drop'});
     $('#approve').click(function(){
-	   $('.ui.small.modal').modal('show'); 
-}); 
+	   $('.ui.small.modal').modal('show');       
+});
+     $('.detail-popup')
+  .popup({
+    lastResort: 'right center',
+    inline  : true,
+    on  : 'click',
+    position   : 'bottom left',
+    delay: {
+      show: 300,
+      hide: 800
+    }
+  })
+;
 });
 </script>
