@@ -102,7 +102,7 @@ class main extends CI_Controller {
         if($this->session->userdata('is_logged_in'))
         {
             $this->load->view('header/common/userheader');
-            $this->load->view('content/admin/superadmin/managefacility');
+            $this->load->view('content/admin/userTable');
             $this->load->view('footer/footer');
        }
         else{
