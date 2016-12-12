@@ -21830,7 +21830,8 @@ Floated Menu / Item
 .ui.secondary.pointing.menu {
   margin-left: 0em;
   margin-right: 0em;
-  border-bottom: 2px solid rgb(28, 150, 78);
+  /* border-bottom: 2px solid rgb(28, 150, 78); */
+    border-bottom: 2px solid rgba(183, 183, 183, 0.64);
 }
 
 .ui.secondary.pointing.menu .item {

@@ -2,7 +2,7 @@
  <div class="footer">
  <div class="top-border"></div>
   <div class="ui container">
-  <div class="ui grid">
+  <div class="ui stackable grid">
    <div id="footer1" class="four wide column" style=" background:url('<?php echo base_url(); ?>assets/images/picmust.png');
     background-size:cover;">
     </div>

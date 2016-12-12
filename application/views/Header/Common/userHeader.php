@@ -17,14 +17,14 @@
 <div class="top-border"></div>
 <div class="ui container">
        
-<div class="ui secondary pointing menu stackable">
+<div class="ui menu stackable">
     <a class="item">Home</a>
     <a class="item">Calendar</a>
     <a class="item"><i class="add to calendar icon"></i>Make Reservation</a>
 
     <div class="right menu">
-        <a class="ui item">
-        <div class="ui floating dropdown"><i class="user icon"></i>My Profile <i class="dropdown icon"></i>
+        <div class="ui item floating dropdown">
+      <i class="user icon"></i>My Profile <i class="dropdown icon"></i>
             <div class="menu transition hidden">
                 <a class="item" data-value="1"><i class="settings icon"></i>My Account</a>
                 <a class="item" data-value="2">Change Password</a>
@@ -32,8 +32,8 @@
                 <a href="<?php echo base_url('main/logout'); ?> " class="item" data-value="3"> <i class="power icon"></i>Logout</a>  
   
             </div>
+     
         </div>
-        </a>
   </div>
 </div> 
 

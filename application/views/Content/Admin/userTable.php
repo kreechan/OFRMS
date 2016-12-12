@@ -1,7 +1,21 @@
 <!-- Start of body content -->
+<div class="ui stackable grid">
+  <div class="four column row">
+    <div class="right floated column">
+        <div class="ui right floated fluid category search">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="Search">
+            <i class="search icon"></i>
+          </div>
+        <div class="results"></div>
+        </div>
+    </div>
+  </div>
+</div>
 
 
-<table class="ui striped table">
+
+<table class="ui green striped table">
   <thead>
     <tr>
       <th>Name</th>

@@ -59,8 +59,6 @@ class main extends CI_Controller {
 
                     );
 
-            
-
             $result= $this->model_users->register_insert($data);
 
                 if($result == TRUE){
