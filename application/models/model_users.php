@@ -1,5 +1,5 @@
 <?php
-Class Model_users extends CI_Model
+class Model_users extends CI_Model
 {
 	
 	
@@ -37,7 +37,6 @@ Class Model_users extends CI_Model
 		$this -> db -> where('email', $this->input->post('email'));
 		$this -> db -> where('password', ($this->input->post('password')));
 		$query = $this -> db -> get('users');
-
 		if($query -> num_rows() == 1)
 		{
 			return true;
@@ -48,5 +47,11 @@ Class Model_users extends CI_Model
 		}
 
 	}
+
+	 public function getHall()
+  	 {
+  	 	$query =$this->db->get('hall');
+  	 	return $query->result();
+  	 }
 }
 ?>

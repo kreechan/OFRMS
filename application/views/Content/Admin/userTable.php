@@ -15,42 +15,44 @@
 
 
 
-<table class="ui green striped table">
+<table class="ui green table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Last Name</th>
       <th>E-mail</th>
       <th>Position</th>
-      <th>Action</th>
+      <th class="right aligned">Action</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>John Lilki</td>
-      <td>September 14, 2013</td>
       <td>jhlilk22@yahoo.com</td>
       <td>No</td>
-      <td><button class="ui mybutton button icon">
+      <td class="right aligned"><button class="ui mybutton button icon">
           <i class="edit icon"></i>Edit
+        </button><button class="ui  red button icon">
+          <i class="remove user icon"></i>
         </button></td>
     </tr>
     <tr>
       <td>Jamie Harington</td>
-      <td>January 11, 2014</td>
       <td>jamieharingonton@yahoo.com</td>
       <td>No</td>
-      <td><button class="ui mybutton button icon">
+      <td class="right aligned"><button class="ui mybutton button icon">
           <i class="edit icon"></i>Edit
+        </button><button class="ui  red button icon">
+          <i class="remove user icon"></i>
         </button></td>
     </tr>
     <tr>
       <td>Jill Lewis</td>
-      <td>May 11, 2014</td>
       <td>jilsewris22@yahoo.com</td>
       <td>No</td>
-      <td><button class="ui mybutton button icon">
+      <td class="right aligned"><button class="ui mybutton button icon">
           <i class="edit icon"></i>Edit
+        </button><button class="ui  red button icon">
+          <i class="remove user icon"></i>
         </button></td>
     </tr>
   </tbody>

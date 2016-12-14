@@ -20,7 +20,7 @@
 <div class="ui menu stackable">
     <a class="item">Home</a>
     <a class="item">Calendar</a>
-    <a class="item"><i class="add to calendar icon"></i>Make Reservation</a>
+    <a class="item"><i class="add to calendar icon"></i>Add Reservation</a>
 
     <div class="right menu">
         <div class="ui item floating dropdown">

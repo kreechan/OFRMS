@@ -4,7 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class main extends CI_Controller {
 
 
-       
+     public function __construct()
+      {
+        parent::__construct();
+        $this->load->model('user/user_model','m');
+        $this->load->model('hallModel','hallM');
+      }       
 
 	public function index()
 	{
@@ -100,7 +105,7 @@ class main extends CI_Controller {
         if($this->session->userdata('is_logged_in'))
         {
             $this->load->view('header/common/userheader');
-            $this->load->view('content/admin/userTable');
+            $this->load->view('content/Admin/editHall');
             $this->load->view('footer/footer');
        }
         else{
@@ -145,9 +150,17 @@ class main extends CI_Controller {
         }
     }
 
-
+    public function viewHall()
+    {
+        $data['halls']= $this->hallM->getHall();
+        $this->load->view('Header/Admin/adminHeader');  
+        $this->load->view('Content/Admin/editHall',$data);
+    }
+   
     public function logout(){
         $this->session->sess_destroy();
         redirect('main/index');
     }
+
+    
 }
