@@ -101,12 +101,13 @@ class main extends CI_Controller {
     }
    
 
-    public function members(){
+   public function members(){
         if($this->session->userdata('is_logged_in'))
         {
-            $this->load->view('header/common/userheader');
-            $this->load->view('content/Admin/editHall');
-            $this->load->view('footer/footer');
+            //$this->load->view('header/common/userheader');
+            //$this->load->view('content/Admin/editHall');
+           // $this->load->view('footer/footer');
+            $this->viewHall();
        }
         else{
         redirect('main/restricted');
@@ -153,8 +154,9 @@ class main extends CI_Controller {
     public function viewHall()
     {
         $data['halls']= $this->hallM->getHall();
-        $this->load->view('Header/Admin/adminHeader');  
+        $this->load->view('Header/common/userheader');  
         $this->load->view('Content/Admin/editHall',$data);
+        $this->load->view('footer/footer');
     }
    
     public function logout(){

@@ -1,34 +1,18 @@
-<!-- Start of body content -->
-<div class="ui items">
-  <div class="item">
-    <div class="ui small image">
-      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
-    </div>
-    <div class="middle aligned content">
-      <div class="header">
-        Rigney Hall
-      </div>
-    </div>
-      <div class="extra">
-        <div class="ui right floated button">
-         <h1><a href="<?=base_url('user/main/viewHall');?>">Add User</a></h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  <table border="1" cellpadding="5" cellspacing="0" width="100%"  >
+<table class="ui celled  table">
+  <thead>
     <tr>
-      <td align="center">Hall ID</td>
-      <td align="center">Name</td>
-      <td align="center">Description</td>
-      <td align="center">price</td>
-      <td align="center">Status</td>
-      <td align="center">Action</td>
+    <th class="collapsing centered">Hall ID</th>
+    <th>Hall Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Status</th>
+    <th>Action</th>
     </tr>
+  </thead>
     <?php 
          foreach($halls as $row): 
      ?>
+  <tbody>
     <tr>
       <td align="center"><?=$row->hall_id?></td>
       <td align="center">
@@ -42,7 +26,9 @@
         <a href=""> Delete </a>
       </td>
     </tr>
-   <?php endforeach; ?>
+       <?php endforeach; ?>
+  </tbody>
+</table>
    
 <!-- POPUP -->
 <script>
