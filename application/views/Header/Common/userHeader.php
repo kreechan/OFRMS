@@ -27,7 +27,7 @@
       <i class="user icon"></i>My Profile <i class="dropdown icon"></i>
             <div class="menu transition hidden">
                 <a class="item" data-value="1"><i class="settings icon"></i>My Account</a>
-                <a class="item" data-value="2">Change Password</a>
+                <a href="<?php echo base_url('main/changepass')?>" class="item" data-value="2">Change Password</a>
                 <div class="ui divider"></div>
                 <a href="<?php echo base_url('main/logout'); ?> " class="item" data-value="3"> <i class="power icon"></i>Logout</a>  
   

@@ -17,7 +17,13 @@ class main extends CI_Controller {
         
     }
     public function login(){
-    $this->load->view('landingpage');
+
+        if($this->session->userdata('is_logged_in')){
+
+            redirect('location:' .base_url('main/members'));
+        }
+            
+            $this->load->view('landingpage');
    
     }
 
@@ -68,13 +74,14 @@ class main extends CI_Controller {
 
                 if($result == TRUE){
 
-                        $message = "User Succesfully Added! (send email)";
+                        $message = "User Succesfully Added! ";
                             echo "<script type='text/javascript'>alert('$message');</script>";
                         $this->load->view('Landingpage', $data);
                 }else{
 
                     $data['message_display'] = 'Email Already Exist';
-                    $this->load->view('content/common/registration_view', $data);
+                   // $this->load->view('content/common/registration_view', $data);
+                    redirect('main/restricted', $data);
                 }
             
         }
@@ -163,6 +170,40 @@ class main extends CI_Controller {
         $this->session->sess_destroy();
         redirect('main/index');
     }
+
+    public function changepass(){
+        $this->load->view('header/common/userHeader');
+        $this->load->view('content/common/changePassword');
+        $this->load->view('footer/footer');
+    }
+
+    public function changepassword(){
+
+        $this->load->helper(array('form','url'));
+        $this->load->library('form_validation');
+        $this->load->helper('security');
+        $this->load->model('model_users');
+        $this->form_validation->set_rules('oldpassword' , 'Old password' , 'required');
+        $this->form_validation->set_rules('newpassword' , 'New password' , 'required');
+        $this->form_validation->set_rules('confirmpassword', 'Confirm password', 'required');
+
+        if($this->form_validation->run() == FALSE){
+
+          echo validation_errors();
+        }else{
+          $email = $this->session->userdata('email');
+
+          $newpassword = array (
+                                'password' => $this->input->post('newpassword')
+                                );
+
+          $this->model_users->change($email, $newpassword);
+          // echo json_encode($this->session->userdata());
+          redirect('main/members');
+
+        }
+    }
+    
 
     
 }

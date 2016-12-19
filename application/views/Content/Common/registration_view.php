@@ -27,13 +27,14 @@
    
     <div class="five wide column right aligned"><label>First Name</label></div>
     <div class="eleven wide column"><input type="text" name="firstname" autocomplete="new-firstname"></div>
-    
+    <span style="color:#de3939;"><?php echo validation_errors(); ?></span>
     </div>
   </div>
   <div class=" field">
     <div class="ui grid">
      <div class="five wide column right aligned"><label>Last Name</label></div>
     <div class="eleven wide column"><input type="text" name="lastname" autocomplete="new-lastname"></div>
+    <span style="color:#de3939;"><?php echo validation_errors(); ?></span>
   </div>
     </div>
   <br>
@@ -41,16 +42,19 @@
     <div class="ui grid">
      <div class="five wide column right aligned"><label>Password</label></div>
     <div class="eleven wide column"><input type="password" name="password" autocomplete="new-password"></div>
+    <span style="color:#de3939;"><?php echo validation_errors(); ?></span>
   </div>
      </div>
   <div class=" field"><div class="ui grid">
      <div class="five wide column right aligned"><label>Email</label></div>
     <div class="eleven wide column"><input type="text" name="email" autocomplete="new-email"></div>
+    <span style="color:#de3939;"><?php echo validation_errors(); ?></span>
   </div>
      </div>
      <div class=" field"><div class="ui grid">
      <div class="five wide column right aligned"><label>Department</label></div>
     <div class="eleven wide column"><input type="text" name="department" autocomplete="new-department"></div>
+    <span style="color:#de3939;"><?php echo validation_errors(); ?></span>
   </div>
      </div>
      
