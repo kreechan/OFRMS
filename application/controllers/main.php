@@ -20,7 +20,7 @@ class main extends CI_Controller {
 
         if($this->session->userdata('is_logged_in')){
 
-            redirect('location:' .base_url('main/members'));
+            redirect('main/members');
         }
             
             $this->load->view('landingpage');
@@ -198,12 +198,17 @@ class main extends CI_Controller {
                                 );
 
           $this->model_users->change($email, $newpassword);
-          // echo json_encode($this->session->userdata());
+          //echo json_encode($this->session->userdata());
           redirect('main/members');
 
         }
     }
     
+    public function calendar(){
 
+        $this->load->view('Header/Common/userHeader');
+        $this->load->view('Content/Common/calendar_view');
+        $this->load->view('footer/footer');
+    }
     
 }
