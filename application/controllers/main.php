@@ -9,21 +9,17 @@ class main extends CI_Controller {
         parent::__construct();
         $this->load->model('user/user_model','m');
         $this->load->model('hallModel','hallM');
+        $this->load->model('build_m','bm');
+
       }       
 
-	public function index()
+		public function index()
 	{
-    $this->login();
-        
+    $this->login();  
     }
+
     public function login(){
-
-        if($this->session->userdata('is_logged_in')){
-
-            redirect('main/members');
-        }
-            
-            $this->load->view('landingpage');
+    $this->load->view('landingpage');
    
     }
 
@@ -74,36 +70,16 @@ class main extends CI_Controller {
 
                 if($result == TRUE){
 
-                        $message = "User Succesfully Added! ";
+                        $message = "User Succesfully Added! (send email)";
                             echo "<script type='text/javascript'>alert('$message');</script>";
                         $this->load->view('Landingpage', $data);
                 }else{
 
                     $data['message_display'] = 'Email Already Exist';
-                   // $this->load->view('content/common/registration_view', $data);
-                    redirect('main/restricted', $data);
+                    $this->load->view('content/common/registration_view', $data);
                 }
             
         }
-
-      /*  $this->load->model('model_users');
-
-        $fname = $this->input->post('firstname');
-        $lname = $this->input->post('lastname');
-        $pw = $this->input->post('password');
-        $user_email = $this->input->post('email');
-        $dept = $this->input->post('department');
-
-        $data = array(
-
-            'firstname' => $fname,
-            'lastname' => $lname,
-            'password' => $pw,
-            'email' => $user_email,
-            'department' => $dept,
-
-            );
-        $this->model_users->register_insert($data); */
 
     }
    
@@ -111,18 +87,31 @@ class main extends CI_Controller {
    public function members(){
         if($this->session->userdata('is_logged_in'))
         {
-            //$this->load->view('header/common/userheader');
-            //$this->load->view('content/Admin/editHall');
-           // $this->load->view('footer/footer');
-            $this->viewHall();
+           $this->welcomepage();    
        }
         else{
         redirect('main/restricted');
        }
     }
+     public function welcomepage()
+    {
+        $this->load->view('Header/Admin/adminHeader'); 
+        $this->load->view('Content/common/welcomepage');
+        $this->load->view('footer/footer'); 
+    }
     
     public function restricted(){
         $this->load->view('restricted');
+    }
+     public function myaccount(){
+         $this->load->view('Header/Admin/adminHeader'); 
+        $this->load->view('Content/common/myaccount');
+        $this->load->view('footer/footer'); 
+    }
+    public function mybookings(){
+         $this->load->view('Header/Admin/adminHeader'); 
+        $this->load->view('Content/common/bookingsteps');
+        $this->load->view('footer/footer'); 
     }
     
      public function login_validation(){
@@ -158,18 +147,117 @@ class main extends CI_Controller {
         }
     }
 
-    public function viewHall()
+    public function logout()
     {
-        $data['halls']= $this->hallM->getHall();
-        $this->load->view('Header/common/userheader');  
-        $this->load->view('Content/Admin/editHall',$data);
-        $this->load->view('footer/footer');
+        $this->session->sess_destroy();
+        redirect('main/login');
+     }
+
+     public function addUser()
+     {
+        
+        $this->load->view('Header/Admin/adminHeader');  
+        $this->load->view('Content/common/registration_view');
+        $this->load->view('footer/footer'); 
+     }
+     public function addReservation()
+     {
+        
+        $this->load->view('Header/Admin/adminHeader');  
+        $this->load->view('Content/Common/calendar_view');
+        $this->load->view('footer/footer'); 
+     }
+
+   // ----  HALL  -------- //
+
+    public function adminHall()
+    {
+        if($this->session->userdata('is_logged_in'))
+        {
+            $this->viewHall();
+       }
+        else{
+             redirect('main/restricted');
+       }
     }
    
-    public function logout(){
-        $this->session->sess_destroy();
-        redirect('main/index');
+
+    public function viewHall()
+    {
+        // display the list of halls
+
+        $data['halls']= $this->hallM->getHall();
+        $this->load->view('Header/Admin/adminHeader');  
+        $this->load->view('Content/Admin/hall/hallDisplay',$data);
+        $this->load->view('footer/footer'); 
+
     }
+
+   public function addHall()
+   {
+       // displays the form
+
+       $this->load->view('Header/admin/adminheader');  
+       $this->load->view('Content/Admin/hall/addHall');
+       $this->load->view('footer/footer');
+   }
+  
+   public function processAdd()
+   {
+      $this->hallM->submitAdd();
+   }
+
+   public function editHall($id)
+   {
+      $data['get_edit'] =$this->hallM->get_edit($id);
+      $this->load->view('Content/Admin/hall/updateHall',$data);
+   }
+
+   public function updateHall()
+   {
+     $this->hallM->get_update();
+   }
+  
+   public function deleteHall($id)
+   {
+      $this->hallM->delete($id);
+   }
+
+   function search_keyword()
+    {
+        $keyword       = $this->input->post('keyword');
+        $data['halls'] = $this->hallM->search($keyword);
+        $this->load->view('Header/Admin/adminHeader');  
+        $this->load->view('Content/Admin/hall/hallDisplay',$data);
+        $this->load->view('footer/footer'); 
+    }
+
+
+
+   // ---------------------------------
+    //  -------   BUILDING ------------
+    // ---------------------------------
+
+     public function viewBuilding()
+     {
+        $data['build']= $this->bm->getBuilding();
+        $this->load->view('Header/admin/adminHeader');  
+        $this->load->view('Content/Admin/Building/bDisplay',$data);
+        $this->load->view('footer/footer'); 
+     }
+     
+
+     public function submitBuilding()
+     {
+         $this->bm->addBuilding();
+     }
+
+     public function viewAddBuilding()
+     {
+        $this->load->view('Header/Admin/adminHeader');  
+        $this->load->view('Content/Admin/Building/addBuild');
+        $this->load->view('footer/footer'); 
+     }
 
     public function changepass(){
         $this->load->view('header/common/userHeader');
@@ -210,5 +298,33 @@ class main extends CI_Controller {
         $this->load->view('Content/Common/calendar_view');
         $this->load->view('footer/footer');
     }
+
     
-}
+    public function updateBuilding()
+    {
+      $this->bm->update();
+    }
+
+   public function editBuilding($id)
+   {
+      $data['get_edit'] =$this->bm->get_edit($id);
+     $this->load->view('Header/Admin/adminHeader'); 
+      $this->load->view('Content/Admin/Building/editBuild',$data);
+      $this->load->view('footer/footer'); 
+   }
+  
+  public function deleteBuild($id)
+  {
+    $this->bm->delete($id);
+  }
+
+     function search_building()
+    {
+        $keyword       = $this->input->post('keyword');
+        $data['build'] = $this->bm->search($keyword);
+        $this->load->view('Header/admin/adminHeader');  
+        $this->load->view('Content/Admin/Building/bDisplay',$data);
+        $this->load->view('footer/footer'); 
+    }
+
+}   

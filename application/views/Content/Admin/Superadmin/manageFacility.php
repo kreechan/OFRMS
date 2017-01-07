@@ -80,6 +80,7 @@
     $('.ui.dropdown').dropdown({transition: 'drop'});
     $('#approve').click(function(){
 	   $('.ui.small.modal').modal('show'); 
+     
 }); 
 });
 </script>

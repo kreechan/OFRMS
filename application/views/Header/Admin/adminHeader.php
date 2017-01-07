@@ -14,32 +14,42 @@
 </head>
 
 <body>
- <!-- ADMIN HEADER-->
 <div class="top-border"></div>
-<div class="ui container" style="min-height:65%; ">
+<div class="ui container">
        
-<div class="ui secondary pointing menu stackable">
-    <a class="item">Home</a>
+<div class="ui menu stackable">
+    <a class="item" href="<?php echo base_url('main/welcomepage');?>">Home</a>
     <a class="item">Calendar</a>
-    <a class="item"><i class="add to calendar icon"></i>Make Reservation</a>
-<a class="ui item"><i class="configure icon"></i>Manage Facility<div class="ui mini red floating label">2</div></a>    
-  <div class="right menu">
-    <a class="ui item">
-        <div class="ui floating dropdown"><i class="user icon"></i>My Profile <i class="dropdown icon"></i>
-            <div class="menu transition hidden">
-                <a class="item" data-value="1"><i class="settings icon"></i>My Account</a>
-                <a class="item" data-value="2">Change Password</a>
-                <div class="ui divider"></div>
-                <a href="#" class="item" data-value="3"><i class="power icon"></i>Logout</a>     
-            </div>
-        </div>
-    </a>
-  </div>
+    <a class="item" href="<?php echo base_url('main/addReservation');?>"><i class="add to calendar icon"></i>Add Reservation</a>
+    <div class="ui item floating dropdown"><i class="configure icon"></i>Manage Facility <i class="dropdown icon"></i>
+      <div class="menu transition hidden">
+        <a class="item" data-value="1" href="<?php echo base_url('main/viewHall');?>">Manage Hall</a>
+        <a class="item" data-value="2" href="<?php echo base_url('main/viewBuilding');?>">Manage Building</a>
+        <a class="item" data-value="3" href="<?php echo base_url('main/addUser');?>">Manage Endorser</a>
+        <a class="item" data-value="3" href="<?php echo base_url('main/addUser');?>">Manage User</a>
+      </div>
+    </div>
+ 
+    <div class="right menu">
+      <div class="ui item floating dropdown">
+      <i class="user icon"></i>My Profile <i class="dropdown icon"></i>
+          <div class="menu transition hidden">
+            <a class="item" data-value="1" href="<?php echo base_url('main/myaccount'); ?>"><i class="settings icon"></i>My Account</a>
+            <a class="item" data-value="2">Change Password</a>
+            <div class="ui divider"></div>
+            <a href="<?php echo base_url('main/logout'); ?> " class="item" data-value="3"> <i class="power icon"></i>Logout</a>  
+          </div>
+      </div>
+    </div>
 </div> 
+
 <!-- End of top menu -->
+
 <script>
  $(document).ready(function(){
-    $('.ui.dropdown').dropdown({transition: 'drop'});
-     
+    $('.ui.dropdown').dropdown({transition: 'slide'});
+    $('#approve').click(function(){
+       $('.ui.small.modal').modal('show');       
+});
 });
 </script>

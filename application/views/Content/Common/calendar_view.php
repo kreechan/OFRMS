@@ -1,6 +1,6 @@
-<link href='assets/css/fullcalendar.css' rel='stylesheet' />
-<script src='assets/js/moment.min.js'></script>
-<script src='assets/js/fullcalendar.min.js'></script>
+<link href='<?php echo base_url(); ?>assets/css/fullcalendar.css' rel='stylesheet' />
+<script src='<?php echo base_url(); ?>assets/js/moment.min.js'></script>
+<script src='<?php echo base_url(); ?>assets/js/fullcalendar.min.js'></script>
 <script>
 
 	$(document).ready(function() {
@@ -17,16 +17,18 @@
 			selectHelper: true,
 			
 			editable: false,    //dragable
-			eventLimit: 1, // allow "more" link when too many events
+			eventLimit: 3, // allow "more" link when too many events
 			events: [
                 {
 					title: 'Conference',
-					start: '2016-08-31'
+					start: '2016-08-31',
+					end: '2016-09-06'
 				},
                
                 {
 					title: 'Film Viewing',
-					start: '2016-09-01'
+					start: '2016-09-01',
+					end: '2016-09-06'
 				},
 				{
 					id: 999,
@@ -46,8 +48,6 @@
 			],
            dayClick: function(date, jsEvent, view) {
                $('.ui.small.modal').modal('show'); 
-
-
     }
 		});
 	});
@@ -127,7 +127,7 @@ text-align:;
     </div>
   </div>
 </div>
-	<div id='calendar'></div>
+<div id='calendar'></div>
 	
 	
 

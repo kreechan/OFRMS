@@ -8,6 +8,7 @@
   	 }
 
 
+
   	 function submit()
   	 {
   	     $arr = array(
@@ -26,6 +27,7 @@
         }
   	 }
 
-  	 
-  }
+}   
+
+    
 ?>

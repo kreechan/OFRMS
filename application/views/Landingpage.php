@@ -30,12 +30,12 @@
             <div class="field">
                <div class="ui stackable grid">
                <div class="nine wide column">
-                  <div class="column"><button class="ui mybutton tiny button fluid" type="submit">LOGIN</button>
+                  <div class="column"><button class="ui mybutton small button fluid" type="submit">LOGIN</button>
                       
                   </div>
                   
                 </div>
-                </div><a href="<?php echo base_url() ?>main/registration_show">To SignUp Click Here</a>
+                </div><!-- <a href="<?php echo base_url() ?>main/registration_show">To SignUp Click Here</a> -->
                 
             </div>
             
