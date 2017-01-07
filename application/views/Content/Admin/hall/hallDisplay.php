@@ -40,8 +40,8 @@
   
     <tr>
       <!-- <td><//?=$row->hall_id?></td> -->
-       <td class="">
-         <img src="<?=$row->hall_pic?>" alt="">
+       <td class="selectable" onClick="test();">
+      <a href=""><img  style="border-radius: 50%; width:50px;" src="<?php echo base_url(); ?>assets/images/usc-logo.png" alt=""></a>
       </td>
       <td>
         <?=$row->hall_name?>
@@ -54,10 +54,7 @@
 
       <td>
        <div class="column mycenter">
-          <a class="ui icon tiny black button" href="<?=base_url();?>main/editHall/<?=$row->hall_id?>"><i class="write icon"></i></a>
-          
-<!--          <a class="ui icon tiny black button" href="javascript:;" onClick="edit_func(<?=$row->hall_id?>)"><i class="write icon"></i></a>-->
-          
+          <a class="ui icon tiny black button" href="<?=base_url();?>main/editHall/<?=$row->hall_id?>"><i class="write icon"></i></a>      
           <a class="ui icon tiny red button" href="javascript:;" onClick="confirm_delete(<?=$row->hall_id?>)"><i class="trash Outline icon"></i></a>
        </div>
       </td>
@@ -69,47 +66,6 @@
 </table>
  </div>
 
-<!--EDIT HALL MODAL-->
- 
-<div id="editmodal" class="ui modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Add Hall
-  </div>
-
-  <div class="content">
-      <?=form_open('main/updateHall');?>
-  <table cellpadding="5" border="0" >
-    <tr>
-       <td>Hall Name</td>
-       <td><?=form_input('hallName', $get_edit->hall_name);?>
-           <?=form_hidden('txtid',$get_edit->hall_id)?>
-       </td>
-
-    </tr>
-    <tr>
-    	<td>Building / Area Name  &nbsp;</td>
-    	<td><?=form_dropdown('BName',array('Engr'=>'Engineering','MR'=>'MR','SMED'=>'SMED','CAFA'=>'CAFA','Library'=>'Library'),$get_edit->hall_building);?></td>
-    </tr>
-    <tr>
-    	<td>Hall Price</td>
-    	<td><?=form_input('price',$get_edit->hall_price);?></td>
-    </tr>
-    <tr>
-    	<td>Description</td>
-    	<td><?=form_textarea('descp',$get_edit->hall_description);?></td>
-    </tr>
-  </table>
-
-<div class="actions">
-    <div class="ui red cancel inverted button">
-      Cancel
-    </div>
-    <input  value="Save" type="submit" class="ui green ok inverted button">
-<?=form_close();?>
-  </div>
-</div>
-</div>
  <!-- DELETE MODAL -->
 
   <div id="confirmdel" class="ui modal">
@@ -196,11 +152,18 @@
   <?=form_close();?>
 </div>
 
-<script> 
-    function edit_func(id){
-        $('#editmodal').modal('show', +id)
-    }
-    
+<!--SHOW IMAGE MODAL-->
+
+<div id="picdimmer" class="ui page dimmer">
+  <div class="content">
+    <div class="center">Hello</div>
+  </div>
+</div>
+
+<script>  
+  function test(x){
+     alert(x)
+  }
     function add_hall(){
       $('#addmodal').modal('show')
     }

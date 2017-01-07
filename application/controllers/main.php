@@ -210,7 +210,9 @@ class main extends CI_Controller {
    public function editHall($id)
    {
       $data['get_edit'] =$this->hallM->get_edit($id);
-      $this->load->view('Content/Admin/hall/updateHall',$data);
+        $this->load->view('Header/Admin/adminHeader');
+        $this->load->view('Content/Admin/hall/updateHall',$data);
+        $this->load->view('footer/footer');
    }
 
    public function updateHall()

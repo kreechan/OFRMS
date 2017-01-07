@@ -12181,8 +12181,8 @@ img.ui.bordered.image {
 *******************************/
 
 .ui.label {
-  display: inline-block;
-  line-height: 15px;
+   display: inline-block;
+  line-height: 1;
   vertical-align: baseline;
   margin: 0em 0.14285714em;
   background-color: #E8E8E8;
@@ -12190,11 +12190,9 @@ img.ui.bordered.image {
   padding: 0.5833em 0.833em;
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
-  font-weight: border-left: ;
+  font-weight: bold;
   border: 0px solid transparent;
-  border-radius:50px;
-    height: 18px;
-    width: 18px;
+  border-radius: 0.28571429rem;
   -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
 }
@@ -16861,7 +16859,7 @@ ol.ui.horizontal.list li:before,
 
 .ui.steps .step.active {
   cursor: auto;
-  background: #F3F4F5;
+  background: rgba(237, 244, 240, 0.8);
 }
 
 .ui.steps .step.active:after {
@@ -16869,7 +16867,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.steps .step.active .title {
-  color: #4183C4;
+  color: #21aa41;
 }
 
 .ui.ordered.steps .step.active:before,
@@ -31053,6 +31051,7 @@ select.ui.dropdown {
              Modal
 *******************************/
 
+
 .ui.modal {
   display: none;
   position: fixed;
@@ -31064,6 +31063,7 @@ select.ui.dropdown {
   border: none;
   box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
   -webkit-transform-origin: 50% 25%;
+  -ms-transform-origin: 50% 25%;
   transform-origin: 50% 25%;
   border-radius: 0.28571429rem;
   -webkit-user-select: text;
@@ -31116,7 +31116,7 @@ select.ui.dropdown {
 
 .ui.modal > .header {
   display: block;
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background: #FFFFFF;
   margin: 0em;
   padding: 1.25rem 1.5rem;
@@ -31413,7 +31413,6 @@ select.ui.dropdown {
 
 .ui.active.modal {
   display: block;
-    padding: 15px;
 }
 
 /*******************************
