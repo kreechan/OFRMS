@@ -12,11 +12,26 @@
 				right: 'next'
 			},
 			defaultDate: '2016-09-12',
-			navLinks: true, // can click day/week names to navigate views
+            minTime: '07:00:00',
+			maxTime: '22:00;00',
+			navLinks: false, // can click day/week names to navigate views
 			selectable: true,
 			selectHelper: true,
-			
-			editable: false,    //dragable
+            allDaySlot: false,
+			clickable: true,
+//			select: function(start, end) {
+//				var title = prompt('Event Title:');
+//				var eventData;
+//				if (title) {
+//					eventData = {
+//						title: title,
+//						start: start,
+//						end: end
+//					};
+//					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+//				}
+//				$('#calendar').fullCalendar('unselect');
+//			},
 			eventLimit: 3, // allow "more" link when too many events
 			events: [
                 {
@@ -47,7 +62,7 @@
 				
 			],
            dayClick: function(date, jsEvent, view) {
-               $('.ui.small.modal').modal('show'); 
+               $('.ui.modal').modal('show'); 
     }
 		});
 	});
@@ -101,10 +116,15 @@ text-align:;
         color:#353936; 
 }
 </style>
-<div class="ui small modal">
-  <i class="close icon"></i>
+<div class="ui large stackable long modal">
   <div class="header">
-    Archive Old Messages
+   Show list of reservations
+    <div class="ui right floated buttons">
+      <div class="ui mybutton button">
+        <i class="add icon"></i>
+        Book Reservation Now!
+      </div>
+    </div>
   </div>
   <div class="image content">
     <div class="image">
@@ -114,18 +134,7 @@ text-align:;
       <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
     </div>
   </div>
-  <div class="actions">
-    <div class="two fluid ui inverted buttons">
-      <div class="ui cancel red basic inverted button">
-        <i class="remove icon"></i>
-        No
-      </div>
-      <div class="ui ok green basic inverted button">
-        <i class="checkmark icon"></i>
-        Yes
-      </div>
-    </div>
-  </div>
+  
 </div>
 <div id='calendar'></div>
 	

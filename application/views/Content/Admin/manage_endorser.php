@@ -1,8 +1,8 @@
 <div class="ui container" style="min-height:300px;">
 <div class="ui grid">
 <div class="six wide column">
-<form onSubmit="return test('skills');">
-<select name="skills" class="ui fluid dropdown">
+<form  onSubmit="return test('skills');">
+<select multiple="" name="skills" class="ui fluid dropdown">
     <option value="">Skills</option>
     <option value="angular">Angular</option>
     <option value="css">CSS</option>

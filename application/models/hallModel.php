@@ -4,12 +4,8 @@ class HallModel extends CI_Model
 
 	public function count()
 	{
-
 		return $this->db->count_all_results('halls');
 	}
-
-
-
 
 	public function getHall()
 	{
@@ -23,7 +19,9 @@ class HallModel extends CI_Model
           'hall_name' => $this->input->post('hallName'),
           'hall_building' => $this->input->post('BName'),
           'hall_description'=>$this->input->post('descp'),
-          'hall_price'=>$this->input->post('price')
+          'hall_price'=>$this->input->post('price'),
+          'hall_pic'=>$this->input->post('hallpic')
+      
        	 );
           
           $this->db->insert('hall',$input);
@@ -46,10 +44,12 @@ class HallModel extends CI_Model
     {
     	$id=$this->input->post('txtid');
     	$output = array(
-    				'hall_name' => $this->input->post('hallName'),
-         			'hall_building' => $this->input->post('BName'),
-                    'hall_description'=>$this->input->post('descp'),
-                    'hall_price'=>$this->input->post('price')
+                'hall_name' => $this->input->post('hallName'),
+                'hall_building' => $this->input->post('BName'),
+                'hall_description'=>$this->input->post('descp'),
+                'hall_price'=>$this->input->post('price'),
+                'hall_capacity'=>$this->input->post('capacity'),
+                'reservation_sched'=>$this->input->post('sched'),
     		      );
 
     	$this->db->where('hall_id',$id);

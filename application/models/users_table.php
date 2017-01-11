@@ -8,10 +8,13 @@
 
    while( $row = mysql_fetch_array($res))
    {
-   		array_push($result, array( 'hall_id' => $row[0],
-   			                       'hall_name' => $row[1]),
+   		array_push($result, array( 
+                                    'hall_pic' => $row[0]);
+                                    'hall_id' => $row[1],
+   			                       'hall_name' => $row[2]),
    			                       'hall_description' => $row[2],
-   			                       'hall_price' => $row[3]);
+   			                       'hall_price' => $row[4]);
+                                    
    }
 
    echo json_encode(array("output" => $result));

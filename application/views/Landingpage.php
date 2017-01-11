@@ -20,7 +20,7 @@
       <form class="ui form" action="<?php echo base_url(); ?>main/login_validation" method="post" accept-charset="utf-8">
         <div class="three fields">
             <div class="field">
-               <input name="email" placeholder="Username" type="text">
+               <input name="idnumber" placeholder="Username" type="text">
  
             </div>
             <div class="field">
