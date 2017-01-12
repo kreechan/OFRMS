@@ -10,6 +10,7 @@ class main extends CI_Controller {
         $this->load->model('user/user_model','m');
         $this->load->model('hallModel','hallM');
         $this->load->model('build_m','bm');
+        $this->load->model('user_model','um');
 
       }       
 
@@ -336,6 +337,58 @@ class main extends CI_Controller {
         $this->load->view('Header/admin/adminHeader');  
         $this->load->view('Content/Admin/Building/bDisplay',$data);
         $this->load->view('footer/footer'); 
+    }
+
+    //------------------------------------
+    //---------- USERS -------------------
+    //-------------------------------------
+
+    public function displayUser()
+    {
+       $data['usersOutput'] = $this->um->getUser();
+       $this->load->view('Header/Admin/adminHeader'); 
+       $this->load->view('Content/Admin/user/userTable',$data);
+       $this->load->view('footer/footer');
+    } 
+ 
+    public function addProcess()
+    {
+      $this->um->submit();
+    } 
+
+    public function addButton()
+    {
+      $this->load->view('Header/Admin/adminHeader'); 
+      $this->load->view('Content/Common/registration_view');
+      $this->load->view('footer/footer');
+    }
+
+    public function searchUsers()
+    {
+
+       $keyword       = $this->input->post('keyword');
+       $data['usersOutput'] = $this->um->search($keyword);
+       $this->load->view('Header/Admin/adminHeader'); 
+       $this->load->view('Content/Admin/user/userTable',$data);
+       $this->load->view('footer/footer');
+    }
+
+    public function deleteUsers($id)
+    {
+      $this->um->delete($id);
+    }
+
+    public function updateUser()
+    {
+      $this->um->update();
+    }
+
+    public function edit_User($id)
+    {
+      $data['get_edit'] = $this->um->get_edit($id);
+      $this->load->view('Header/Admin/adminHeader'); 
+      $this->load->view('Content/Admin/user/editUser',$data);
+      $this->load->view('footer/footer'); 
     }
 
 }   

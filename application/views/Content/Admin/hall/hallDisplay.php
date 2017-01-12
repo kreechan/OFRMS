@@ -43,7 +43,7 @@
            <td class="selectable" onClick="test();" style="cursor:pointer;">
           <a style="pointer-events: none; cursor: default;" href="">
               <img id="" style="border-radius: 50%; width:50px;" src="<?php echo base_url(); ?>assets/images/usc-logo.png" alt="">
-              <p name="myimg">asd</p>
+              <p name="myimg"></p>
           </a>
           </td>
           <td>
@@ -54,14 +54,14 @@
           </td>
           <td><?=$row->hall_description?></td>
           <td>P<?=$row->hall_price?>.00</td>
-
+     
           <td>
            <div class="column mycenter">
               <a class="ui icon tiny black button" href="<?=base_url();?>main/editHall/<?=$row->hall_id?>"><i class="write icon"></i></a>      
               <a class="ui icon tiny red button" href="javascript:;" onClick="confirm_delete(<?=$row->hall_id?>)"><i class="trash Outline icon"></i></a>
            </div>
           </td>
-          <td></td>
+          <td><?=$row->hall_lastmodified?></td>
         </tr>
 
            <?php  $count++;  endforeach; ?>

@@ -18,7 +18,7 @@
 <div class="ui container">
        
 <div class="ui menu stackable">
-    <a id="home" class="item" href="<?php echo base_url('main/welcomepage');?>">Home</a>
+    <a class="item" href="<?php echo base_url('main/welcomepage');?>">Home</a>
     <a class="item">Calendar</a>
     <a class="item" href="<?php echo base_url('main/addReservation');?>"><i class="add to calendar icon"></i>Add Reservation</a>
     <div class="ui item floating dropdown"><i class="configure icon"></i>Manage Facility <i class="dropdown icon"></i>
@@ -26,7 +26,7 @@
         <a class="item" data-value="1" href="<?php echo base_url('main/viewHall');?>">Manage Hall</a>
         <a class="item" data-value="2" href="<?php echo base_url('main/viewBuilding');?>">Manage Building</a>
         <a class="item" data-value="3" href="<?php echo base_url('main/manageEndorser');?>">Manage Endorser</a>
-        <a class="item" data-value="3" href="<?php echo base_url('main/addUser');?>">Manage User</a>
+        <a class="item" data-value="3" href="<?php echo base_url('main/displayUser');?>">Manage User</a>
       </div>
     </div>
  

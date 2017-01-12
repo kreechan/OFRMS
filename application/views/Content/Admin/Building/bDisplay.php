@@ -27,7 +27,6 @@
     <tr>
     <!-- <th class="collapsing centered"> </th> -->
     <th class="three wide">Building Name</th>
-    <th class="three wide">Hall Member</th>
     <th class="six wide">Description</th>
     <th class="two wide" style="text-align:center;">Action</th>
     <th class="two wide" style="text-align:center;">Last Modified</th>
@@ -43,7 +42,6 @@
       <td align="center">
         <?=$row->build_name?>  
       </td>
-      <td align="center"><?=$row->build_members?></td>
       <td align="center"><?=$row->build_description?></td>
       <td>
        <div class="column mycenter">
@@ -51,7 +49,7 @@
           <a class="ui icon tiny red button" href="javascript:;" onClick="confirm_delete(<?=$row->build_id?>)"><i class="trash Outline icon"></i></a>
        </div>
       </td>
-      <td></td>
+      <td><?=$row->lastmodified?></td>
     </tr>
        <?php  $count++;  endforeach; ?>
 
@@ -99,10 +97,6 @@
        <tr>
     <td><p style="margin:12px;"></p></td>
     <tr>
-    <tr>
-      <td>Hall Members  &nbsp;</td>
-      <td><?=form_input('Bmem');?></td>
-    </tr>
        <tr>
     <td><p style="margin:12px;"></p></td>
     <tr>
