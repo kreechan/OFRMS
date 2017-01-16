@@ -14,14 +14,14 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
     </div>
-    <div class="ui bottom attached mybutton button">
+    <a href="<?php echo base_url('cards_hall/rigneyHall');?>" class="ui bottom attached mybutton button">
       <i class="lock icon large"></i>
-      RESERVE
-    </div>
+     RESERVE
+    </a>
   </div>
   <div class="card">
     <div class="image">
-      <img src="<?php echo base_url(); ?>assets/images/picmust.png">
+      <img src="<?php echo base_url(); ?>assets/images/photo0387.jpg">
     </div>
     <div class="content">
       <div class="header">SAS Audio Visual Room</div>
@@ -32,10 +32,10 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
     </div>
-    <div class="ui bottom attached mybutton button">
+    <a href="<?php echo base_url('cards_hall/SASavr');?>" class="ui bottom attached mybutton button">
       <i class="lock icon large"></i>
-      RESERVE
-    </div>
+        RESERVE
+    </a>
   </div>
   <div class="card">
     <div class="image">
@@ -51,12 +51,11 @@
       </div>
     </div>
     
-     <div class="ui bottom attached mybutton button">
+     <a href="<?php echo base_url('cards_hall/BCT');?>" class="ui bottom attached mybutton button">
       <i class="lock icon large"></i>
-      RESERVE
-    </div>
-    
-  </div>
+        RESERVE
+  </a>
+     </div>
   <div class="card">
     <div class="image">
       <img src="<?php echo base_url(); ?>assets/images/picmust.png">
@@ -72,7 +71,7 @@
     </div>
     <div class="ui bottom attached mybutton button">
       <i class="lock icon large"></i>
-      RESERVE
+       <a style="color:#fff;" href="<?php echo base_url('cards_hall/rigneyHall');?>">RESERVE</a>
     </div>
   </div>
   <div class="card">
@@ -88,10 +87,10 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
     </div>
-    <div class="ui bottom attached mybutton button">
-      <i class="lock icon large"></i>
-      RESERVE
-    </div>
+    <a href="<?php echo base_url('cards_hall/MRtheater');?>" class="ui bottom attached mybutton button">
+      <i  class="lock icon large"></i>
+     RESERVE
+    </a>
   </div>
   <div class="card">
     <div class="image">
@@ -100,16 +99,16 @@
     <div class="content">
       <div class="header">SAFAD Theater</div>
       <div class="meta">
-        <p>Hourly rate: P200.00</p>
+        <p>Hourly rate: P1000.00</p>
       </div>
       <div class="description">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
     </div>
-    <div class="ui bottom attached mybutton button">
-      <i class="lock icon large"></i>
-      RESERVE
-    </div>
+    <a href="<?php echo base_url('cards_hall/SAFADtheater');?>" class="ui bottom attached mybutton button">
+      <i  class="lock icon large"></i>
+     RESERVE
+    </a>
   </div>
   <div class="card">
     <div class="image">
@@ -124,10 +123,10 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
     </div>
-    <div class="ui bottom attached mybutton button">
+    <a href="<?php echo base_url('cards_hall/rigneyHall');?>" class="ui bottom attached mybutton button">
       <i class="lock icon large"></i>
-      RESERVE
-    </div>
+       RESERVE
+    </a>
   </div>
   <div class="card">
     <div class="image">
@@ -142,10 +141,10 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
     </div>
-    <div class="ui bottom attached mybutton button">
+    <a href="<?php echo base_url('cards_hall/rigneyHall');?>" class="ui bottom attached mybutton button">
       <i class="lock icon large"></i>
-      RESERVE
-    </div>
+    RESERVE
+    </a>
   </div>
   <div class="card">
     <div class="image">
@@ -160,10 +159,10 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       </div>
     </div>
-    <div class="ui bottom attached mybutton button">
+    <a href="<?php echo base_url('cards_hall/rigneyHall');?>" class="ui bottom attached mybutton button">
       <i class="lock icon large"></i>
       RESERVE
-    </div>
+    </a>
   </div>
   
   

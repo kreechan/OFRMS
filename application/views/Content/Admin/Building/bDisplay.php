@@ -26,10 +26,10 @@
   <thead>
     <tr>
     <!-- <th class="collapsing centered"> </th> -->
-    <th class="three wide">Building Name</th>
-    <th class="six wide">Description</th>
-    <th class="two wide" style="text-align:center;">Action</th>
-    <th class="two wide" style="text-align:center;">Last Modified</th>
+    <th class="three wide" style="background-color:#f0f0f0;">Building Name</th>
+    <th class="six wide" style="background-color:#f0f0f0;">Description</th>
+    <th class="two wide" style="text-align:center; background-color:#f0f0f0">Action</th>
+    <th class="two wide" style="text-align:center; background-color:#f0f0f0">Last Modified</th>
     </tr>
   </thead>
    <tbody> 
@@ -40,13 +40,13 @@
       <!-- <td align="center"><?=$row->build_id?></td> -->
       <td align="center"><?=$row->build_name?></td>
       <td align="center"><?=$row->build_description?></td>
+      <td><?=$row->lastmodified?></td>
       <td>
        <div class="column mycenter">
           <a class="ui icon tiny black button" href="<?=base_url();?>main/editBuilding/<?=$row->build_id?>"><i class="write icon"></i></a>
           <a class="ui icon tiny red button" href="javascript:;" onClick="confirm_delete(<?=$row->build_id?>)"><i class="trash Outline icon"></i></a>
        </div>
       </td>
-      <td><?=$row->lastmodified?></td>
     </tr>
        <?php  endforeach; ?>
 

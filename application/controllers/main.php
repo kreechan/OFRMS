@@ -176,7 +176,7 @@ class main extends CI_Controller {
      {
         
         $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/Common/calendar_view');
+        $this->load->view('Content/common/facilitycards');
         $this->load->view('footer/footer'); 
      }
    

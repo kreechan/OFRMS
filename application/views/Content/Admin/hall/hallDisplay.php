@@ -23,14 +23,14 @@
   <thead>
     <tr>
     <!-- <th class="center"></th> -->
-    <th class="one wide" style="text-align:center;"></th>
-    <th class="three wide" style="text-align:center;">Hall Name</th>
-    <th class="two wide" style="text-align:center;">Building Location</th>
-    <th class="four wide" style="text-align:center;">Description</th>
-    <th class="two wide" style="text-align:center;">Price</th>
-    <th class="two wide" style="text-align:center;">Approver</th>
-    <th class="two wide" style="text-align:center;">Last Modified</th>
-    <th class="two wide" style="text-align:center;">Action</th>
+    <th class="one wide" style="text-align:center; background-color:#f0f0f0"></th>
+    <th class="three wide" style="background-color:#f0f0f0">Hall Name</th>
+    <th class="two wide" style="background-color:#f0f0f0">Location</th>
+    <th class="four wide" style="background-color:#f0f0f0">Description</th>
+    <th class="two wide" style="text-align:center; background-color:#f0f0f0 ">Price</th>
+    <th class="two wide" style="text-align:center; background-color:#f0f0f0">Approver</th>
+    <th class="two wide" style="text-align:center; background-color:#f0f0f0">Last Modified</th>
+    <th class="two wide" style="text-align:center; background-color:#f0f0f0">Action</th>
     </tr>
   </thead>
    <tbody> 
@@ -41,7 +41,7 @@
   
     <tr>
       <!-- <td><//?=$row->hall_id?></td> -->
-       <td class="selectable" onClick="test(<?= $row->hall_id ?>);">
+       <td class="selectable" onClick="test(<?= $row->hall_pic ?>);">
       <a href=""><img  style="border-radius: 50%; width:50px;" src="<?php echo base_url(); ?>assets/images/usc-logo.png" alt=""></a>
       </td>
       <td><?=$row->hall_name?></td>
@@ -147,16 +147,6 @@
 
 </div>
 
-
-<div class="ui modal">
-  
-  <div class="content">
-    <p></p>
-    <p></p>
-    <p></p> 
- 
-</div>
-</div>
 <script>  
   function test(x){
      alert(x)
