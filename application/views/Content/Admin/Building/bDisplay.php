@@ -34,14 +34,11 @@
   </thead>
    <tbody> 
     <?php 
-         $count =1;
-         foreach($build as $row):
+         foreach($buildings as $row):
      ?>
     <tr>
       <!-- <td align="center"><?=$row->build_id?></td> -->
-      <td align="center">
-        <?=$row->build_name?>  
-      </td>
+      <td align="center"><?=$row->build_name?></td>
       <td align="center"><?=$row->build_description?></td>
       <td>
        <div class="column mycenter">
@@ -51,7 +48,7 @@
       </td>
       <td><?=$row->lastmodified?></td>
     </tr>
-       <?php  $count++;  endforeach; ?>
+       <?php  endforeach; ?>
 
   </tbody>
 </table>

@@ -7,11 +7,13 @@
 </div>
 </div>
 <div class="ui very padded raised text container segment">  
- <form  class="ui form mycenter" action = "<?php echo base_url() ?>main/new_user_register" method="post">
+ <form  class="ui form mycenter" action = "<?php echo base_url() ?>main/addProcess" method="post">
   
   <div class=" field">
    <div class="ui grid">
-   
+     
+     <div class="five wide column right aligned"><label>ID Number</label></div>
+    <div class="eleven wide column"><input type="text" name="idNum" autocomplete="new-firstname"></div>
     <div class="five wide column right aligned"><label>First Name</label></div>
     <div class="eleven wide column"><input type="text" name="firstname" autocomplete="new-firstname"></div>
     <span style="color:#de3939;"><?php echo validation_errors(); ?></span>
@@ -41,6 +43,12 @@
      <div class=" field"><div class="ui grid">
      <div class="five wide column right aligned"><label>Department</label></div>
     <div class="eleven wide column"><input type="text" name="department" autocomplete="new-department"></div>
+    <span style="color:#de3939;"><?php echo validation_errors(); ?></span>
+  </div>
+     </div>
+     <div class=" field"><div class="ui grid">
+     <div class="five wide column right aligned"><label>Position</label></div>
+    <div class="eleven wide column"><input type="text" name="pos" autocomplete="new-department"></div>
     <span style="color:#de3939;"><?php echo validation_errors(); ?></span>
   </div>
      </div>

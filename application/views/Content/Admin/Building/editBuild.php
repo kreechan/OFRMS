@@ -9,11 +9,6 @@
        </td>
     </tr>
     <tr><td><p style="margin:12px;"></p></td></tr>
-   <tr>
-      <td>Hall Members</td>
-      <td><?=form_input('Bmem',$get_edit->build_members);?></td>
-    </tr>
-    <tr><td><p style="margin:12px;"></p></td></tr>
     <tr>
     	<td>Description</td>
     	<td><?=form_textarea('Bdescp',$get_edit->build_description);?></td>
@@ -21,7 +16,7 @@
     <tr><td><p style="margin:12px;"></p></td></tr>
     <tr>
         <td></td>
-        <td><?=form_submit('submit','save');?></td>
+        <td><button class="ui button mybutton" type="submit">Submit</button></td>
     </tr>  
   </table>
   </div>
