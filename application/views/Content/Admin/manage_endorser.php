@@ -1,67 +1,50 @@
-<style>
-    .special{
-        color:red;
-    }
-</style>
-<div class="ui container" style="min-height:420px;">
+<div class="ui container" style="min-height:300px;">
 <div class="ui grid">
+<div class="six wide column">
+<form  onSubmit="return test('skills');">
+<select multiple="" name="skills" class="ui fluid dropdown">
+    <option value="">Skills</option>
+    <option value="angular">Angular</option>
+    <option value="css">CSS</option>
+    <option value="design">Graphic Design</option>
+    <option value="ember">Ember</option>
+    <option value="html">HTML</option>
+    <option value="ia">Information Architecture</option>
+    <option value="javascript">Javascript</option>
+    <option value="mech">Mechanical Engineering</option>
+    <option value="meteor">Meteor</option>
+    <option value="node">NodeJS</option>
+    <option value="plumbing">Plumbing</option>
+    <option value="python">Python</option>
+    <option value="rails">Rails</option>
+    <option value="react">React</option>
+    <option value="repair">Kitchen Repair</option>
+    <option value="ruby">Ruby</option>
+    <option value="ui">UI Design</option>
+    <option value="ux">User Experience</option>
+</select>
+<input type="submit" value="Submit Form">
+</form>
+</div>
+<div class="two wide column">
+<!--<a class="ui button mybutton" onClick="test();">Submit</a>-->
+</div>
 <div class="eight wide column">
-
- 
-  <!-- table start -->
-<table style="cursor:pointer;" class="ui selectable table">
-<thead>
-    <th ><form style="float: right;" action="<?php echo site_url('main/searchEndorser');?>" method = "post">
-    <div class="ui left aligned category search">
-  <div class="ui icon input">
-    <input class="prompt" placeholder="Search by name.."  type="text" name = "keyword">
-    <i class="search icon"></i>
-  </div>
-  <div class="results"></div>
-</div>
-  </form></th>
-</thead>
-    <?php foreach($usersOutput as $row):?>
-    <tbody class="pickEndorser">
-    <tr>
-         <td><?=$row->fname.'  '.$row->lname?></td>
-    </tr>
-         <?php    endforeach; ?>
-</tbody>
-</table>
-</div>
-<div class="seven wide column">
-<table class="ui table" style="cursor:pointer;">
-    <tbody id="donePick">
-    </tbody>
-</table>
-</div>
-<div class="one wide column">
-<table class="ui selectable table" >
-    <tbody id="order">
-    </tbody>
-</table>
+ <select name="skills" multiple="" class="ui fluid dropdown">
+    <option value="">Skills</option>
+    <option value="angular">Angular</option>
+    
+</select>
 </div>
 </div>
 </div>
 <script>
-    var counter = 0;
-    var arrX = [];  var arrOrder = []; //arrays
-    var i = -1; //iterate
-    var arrMerge = [];
- $(function(){
-    $('.pickEndorser td').on('click', function(){
-        $(this).hide();
-    var x = $(this).html();
-    $('#donePick').after('<tr><td>'+x+'</td></tr>');
-        counter++;
-    $('#order').after('<tr><td>'+counter+'</td></tr>');
-        i++;
-        arrX[i] = x;
-        arrOrder[i] = counter;
-        arrMerge[i] = [arrX[i],arrOrder[i]];
-        //alert(arrMerge[i]);
-     });
- });
+    function test(skills){
+        var val = document.getElementsByName("skills");
+            alert(val);
+        
+        
+       // alert("asd");
+    }
+ $('.ui.dropdown').dropdown({transition: 'drop'});
 </script>
-

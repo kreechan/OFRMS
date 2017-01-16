@@ -13,8 +13,7 @@
     
 </head>
 
-<body class="">
-<div class="usc-bg">
+<body>
 <div class="top-border"></div>
 <div class="ui container">
        
@@ -27,7 +26,7 @@
         <a class="item" data-value="1" href="<?php echo base_url('main/viewHall');?>">Manage Hall</a>
         <a class="item" data-value="2" href="<?php echo base_url('main/viewBuilding');?>">Manage Building</a>
         <a class="item" data-value="3" href="<?php echo base_url('main/manageEndorser');?>">Manage Endorser</a>
-        <a class="item" data-value="4" href="<?php echo base_url('main/addUser');?>">Manage User</a>
+        <a class="item" data-value="3" href="<?php echo base_url('main/displayUser');?>">Manage User</a>
       </div>
     </div>
  
@@ -36,7 +35,7 @@
       <i class="user icon"></i>My Profile <i class="dropdown icon"></i>
           <div class="menu transition hidden">
             <a class="item" data-value="1" href="<?php echo base_url('main/myaccount'); ?>"><i class="settings icon"></i>My Account</a>
-            <a class="item" data-value="2" href="<?php echo base_url('main/changePass'); ?>">Change Password</a>
+            <a class="item" data-value="2">Change Password</a>
             <div class="ui divider"></div>
             <a href="<?php echo base_url('main/logout'); ?> " class="item" data-value="3"> <i class="power icon"></i>Logout</a>  
           </div>

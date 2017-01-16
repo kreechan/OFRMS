@@ -45,7 +45,7 @@ class Hall extends CI_Controller {
    public function updateUser($id)
    {
      $data['get_update'] =$this->load->hallModel->get_update($id);
-    $this->load->view('Header/common/userheader'); 
+    $this->load->view('Header/common/userheader');  
      $this->load->view('Content/Admin/hall/updateHall',$data);
      $this->load->view('footer/footer');
    }
@@ -54,5 +54,7 @@ class Hall extends CI_Controller {
    {
       $this->load->hallModel->delete($id);
    }
+
+   
 }
 

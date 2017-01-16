@@ -18,6 +18,7 @@
  	 {
  	 	 $input= array(
                  'build_name' =>$this->input->post('Bname'),
+                 'build_members' =>$this->input->post('Bmem'),
                  'build_description' =>$this->input->post('Bdescp')
  	 	 );
 
@@ -27,17 +28,14 @@
  	 	 {	
  	 	 	redirect(base_url().'main/viewBuilding');
  	 	 }
+
  	 }
 
-     public function get_edit($id)
-	{
-	  $query=$this->db->get_where('building',array('build_id'=>$id));
-	  return $query->row();
-	}
  	 public function update()
  	 {
  	 	$id=$this->input->post('txtid');
     	$output = array('build_name' =>$this->input->post('Bname'),
+                 'build_members' =>$this->input->post('Bmem'),
                  'build_description' =>$this->input->post('Bdescp')
     		      );
 
@@ -50,7 +48,11 @@
     	}
  	 }
  	 
- 	 
+ 	 public function get_edit($id)
+	{
+	  $query=$this->db->get_where('building',array('build_id'=>$id));
+	  return $query->row();
+	}
 
 
 	public function delete($id)

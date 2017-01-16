@@ -17,7 +17,7 @@
      function submit()
      {
          $arr = array(
-              'idNumber'=>$this->input->post('idNum'),
+              'idNumber' =>$this->input->post('idNum'),
               'fname' =>$this->input->post('firstname'),
               'lname' =>$this->input->post('lastname'),
               'password' =>$this->input->post('password'),
@@ -25,8 +25,8 @@
               'dept' =>$this->input->post('department'),
               'position' =>$this->input->post('pos')
           );  
-        
-          $this->db->insert('users',$arr);
+
+        $this->db->insert('users',$arr);
 
         if($this->db->affected_rows()>0)
         {
@@ -55,8 +55,7 @@
     public function update()
    {
     $id=$this->input->post('txtid');
-    $output = array('idNumber'=>$this->input->post('idNum'),
-                    'fname' =>$this->input->post('Firstname'),
+    $output = array('fname' =>$this->input->post('Firstname'),
                      'lname'=>$this->input->post('lastname'),
                      'dept' =>$this->input->post('dept'),
                      'position' =>$this->input->post('pos'),

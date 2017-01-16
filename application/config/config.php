@@ -423,7 +423,7 @@ $config['standardize_newlines'] = FALSE;
 |
 */
 $config['global_xss_filtering'] = FALSE;
-$config['sess_use_database'] = TRUE;
+
 /*
 |--------------------------------------------------------------------------
 | Cross Site Request Forgery

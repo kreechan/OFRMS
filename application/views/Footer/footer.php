@@ -1,7 +1,6 @@
  
 <!-- closing tag for container frm header--> </div>
 <!-- start footer-->
-
  <div class="footer">
  <div class="top-border"></div>
   <div class="ui container">

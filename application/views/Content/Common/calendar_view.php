@@ -62,15 +62,10 @@
 				
 			],
            dayClick: function(date, jsEvent, view) {
-               $('.uno').modal('setting', 'transition', 'fade left').modal('show'); 
+               $('.ui.modal').modal('show'); 
     }
 		});
-        $('#dosbutton').on('click', function(){
-            $('#dosmodal').modal('setting', 'transition', 'fade left').modal('show');
-        })
-        
 	});
-    
 
 </script>
 <style>
@@ -121,12 +116,11 @@ text-align:;
         color:#353936; 
 }
 </style>
-<div class="uno ui large stackable long modal">
-     <i class="close icon"></i>
+<div class="ui large stackable long modal">
   <div class="header">
    Show list of reservations
     <div class="ui right floated buttons">
-      <div class="ui mybutton button" id="dosbutton">
+      <div class="ui mybutton button">
         <i class="add icon"></i>
         Book Reservation Now!
       </div>
@@ -137,111 +131,8 @@ text-align:;
       <i class="archive icon"></i>
     </div>
     <div class="description">
-      <p>:)</p>
+      <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
     </div>
-  </div>
-  
-</div>
-<!--second modal-->
-<div class="ui large stackable long modal" id="dosmodal">
-     <i class="close icon"></i>
-  <div class="header">
-   Book Reservation
-<!--
-    <div class="ui right floated buttons">
-      <div class="ui mybutton button">
-        <i class="add icon"></i>
-        Book Reservation Now!
-      </div>
-    </div>
--->
-  </div>
-  <div class="content">
-      <div class="ui form">
-  <table>
-    <tr>
-      <div class="field">
-        <td>Activity: &nbsp;</td>
-        <td><input type="text"></td>
-       </div>
-    </tr>
-    <tr>
-    <td><p style="margin:12px 0px;"></p></td>
-    </tr>
-     <tr>
-        <td>Department: &nbsp;</td>
-        <td><input type="text"></td>
-    </tr>
-    <tr>
-    <td><p style="margin:12px 0px;"></p></td>
-    </tr>
-    <tr>
-        <td>Time Start: &nbsp;</td>
-        <td>
-            <select  name="timestart" class="ui compact dropdown">
-                <option value="1">7:30AM</option>
-                <option value="2">8:00AM</option>
-                <option value="3">8:30AM</option>
-                <option value="4">9:00AM</option>
-                <option value="5">9:30AM</option>
-                <option value="5">10:00AM</option>
-                <option value="5">10:30AM</option>
-                <option value="5">11:00AM</option>
-                <option value="5">11:30AM</option>
-                <option value="5">12:00AM</option>
-                <option value="5">12:30PM</option>
-                <option value="5">1:00PM</option>
-                <option value="5">1:30PM</option>
-                <option value="5">2:00PM</option>
-                <option value="5">2:30PM</option>
-                <option value="5">3:00PM</option>
-                <option value="5">3:30PM</option>
-                <option value="5">4:00PM</option>
-                <option value="5">4:30PM</option>
-                <option value="5">5:00PM</option>
-                <option value="5">5:30PM</option>
-                <option value="5">6:00PM</option>
-                <option value="5">6:30PM</option>
-            </select>
-             - 
-            <select  name="timeend" class="ui compact dropdown">
-                <option value="2">8:00AM</option>
-                <option value="3">8:30AM</option>
-                <option value="4">9:00AM</option>
-                <option value="5">9:30AM</option>
-                <option value="5">10:00AM</option>
-                <option value="5">10:30AM</option>
-                <option value="5">11:00AM</option>
-                <option value="5">11:30AM</option>
-                <option value="5">12:00AM</option>
-                <option value="5">12:30PM</option>
-                <option value="5">1:00PM</option>
-                <option value="5">1:30PM</option>
-                <option value="5">2:00PM</option>
-                <option value="5">2:30PM</option>
-                <option value="5">3:00PM</option>
-                <option value="5">3:30PM</option>
-                <option value="5">4:00PM</option>
-                <option value="5">4:30PM</option>
-                <option value="5">5:00PM</option>
-                <option value="5">5:30PM</option>
-                <option value="5">6:00PM</option>
-                <option value="5">6:30PM</option>
-            </select>
-        </td>
-    </tr>
-<tr>
-    <td><p style="margin:12px 0px;"></p></td>
-    </tr>
-
- <tr>
-     <div class="field">
-        <td>Purpose: &nbsp;</td>
-        <td><textarea name="" id="" cols="15" rows="5"></textarea></td>
-      </div>
-    </tr>
-  </table>
-  </div>
   </div>
   
 </div>

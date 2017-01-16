@@ -3,7 +3,7 @@
     <!-- search box -->
   <div class="ui grid">
   <div class="two column row">
-    <div class="left floated column"><a class="ui mybutton approve button left aligned small" href="<?php echo base_url('main/regUser');?> "><i class="add icon"></i>ADD User</a></div>
+    <div class="left floated column"><a class="ui mybutton approve button left aligned small" href="<?php echo base_url('main/addButton');?> "><i class="add icon"></i>ADD User</a></div>
 
     <div class="right floated column right aligned ">
       <form action="<?php echo site_url('main/searchUsers');?>" method = "post">
@@ -23,7 +23,7 @@
   <thead>
     <tr>
     <!-- <th class="center"></th> -->
-    <th class="three wide"> ID No. </th>
+    <th class="three wide"> ID No. </th>>
     <th class="three wide"> Name</th>
     <th class="three wide">Department</th>
     <th class="three wide">Position</th>
@@ -44,7 +44,7 @@
       <td><?=$row->email?></td>
       <td>
        <div class="column mycenter">
-          <a class="ui icon tiny black button" href="<?=base_url();?>main/edit_User/<?=$row->idNumber?>" value = "<?= $row->idNumber?>" id ="id"><i class="write icon"></i></a>
+          <a class="ui icon tiny black button" href="<?=base_url();?>main/edit_User/<?=$row->idNumber?>" value = "<?= $row->idNumber?>" id ="id"></i></a>
           <a class="ui icon tiny red button" href="javascript:;" onClick="confirm_delete(<?=$row->idNumber?>)"><i class="trash Outline icon"></i></a>
        </div>
       </td>

@@ -23,7 +23,7 @@
       <div class="description">Head Internal Audit</div>
     </div>
   </div>
-  <div class="step">
+  <div class="disabled step">
     <i class="user icon"></i>
     <div class="content">
       <div class="title">Fr. Eleno P. Bucia, SVD</div>
