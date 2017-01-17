@@ -28,4 +28,5 @@ class Hall extends CI_Controller {
     $this->load->view('Content/Admin/manage_endorser',$data);
    }
 
+   
 }

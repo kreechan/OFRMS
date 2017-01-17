@@ -27,7 +27,7 @@
         <a class="item" data-value="1" href="<?php echo base_url('main/viewHall');?>">Manage Hall</a>
         <a class="item" data-value="2" href="<?php echo base_url('main/viewBuilding');?>">Manage Building</a>
         <a class="item" data-value="3" href="<?php echo base_url('main/manageEndorser');?>">Manage Endorser</a>
-        <a class="item" data-value="4" href="<?php echo base_url('main/addUser');?>">Manage User</a>
+        <a class="item" data-value="4" href="<?php echo base_url('main/displayUser');?>">Manage User</a>
       </div>
     </div>
  

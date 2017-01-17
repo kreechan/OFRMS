@@ -77,6 +77,7 @@ class HallModel extends CI_Model
   
    function search($keyword)
     {
+        $this->db->join('building','building.build_id = hall.hall_buildloc','left');
         $this->db->like('hall_name',$keyword);
         $query  =   $this->db->get('hall');
         return $query->result();

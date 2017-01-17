@@ -337,8 +337,17 @@ class main extends CI_Controller {
     //------------------------------------
     //---------- USERS -------------------
     //-------------------------------------
+ 
 
-    public function displayUser()
+    public function regUser()
+    {
+      $this->load->view('Header/Admin/adminHeader'); 
+      $this->load->view('Content/Common/registration_view');
+      $this->load->view('footer/footer');
+    }
+
+
+   public function displayUser()
     {
        $data['usersOutput'] = $this->um->getUser();
        $this->load->view('Header/Admin/adminHeader'); 
@@ -348,11 +357,10 @@ class main extends CI_Controller {
  
     public function addProcess()
     {
-      $this->um->update();
-      
+      $this->um->submit();
     } 
 
-    public function regUser()
+    public function addButton()
     {
       $this->load->view('Header/Admin/adminHeader'); 
       $this->load->view('Content/Common/registration_view');
@@ -361,6 +369,9 @@ class main extends CI_Controller {
 
     public function searchUsers()
     {
+
+       $keyword       = $this->input->post('keyword');
+       $data['usersOutput'] = $this->um->search($keyword);
        $this->load->view('Header/Admin/adminHeader'); 
        $this->load->view('Content/Admin/user/userTable',$data);
        $this->load->view('footer/footer');
@@ -373,10 +384,7 @@ class main extends CI_Controller {
 
     public function updateUser()
     {
-       $data['usersOutput'] = $this->um->search($keyword);
-      $this->load->view('Header/Admin/adminHeader');
-      $this->load->view('Content/Admin/user/userTable',$data);
-      $this->load->view('footer/footer');
+      $this->um->update();
     }
 
     public function edit_User($id)
@@ -385,11 +393,6 @@ class main extends CI_Controller {
       $this->load->view('Header/Admin/adminHeader'); 
       $this->load->view('Content/Admin/user/editUser',$data);
       $this->load->view('footer/footer'); 
-    }
-
-    public function upUser($id)
-    {
-      $this->um->update();
     }
 
     //-------------------
@@ -412,6 +415,11 @@ class main extends CI_Controller {
        $this->load->view('Header/Admin/adminHeader'); 
        $this->load->view('Content/Admin/manage_endorser',$data);
        $this->load->view('footer/footer');
+     }
+
+     public function upload()
+     {
+      
      }
 
 }   

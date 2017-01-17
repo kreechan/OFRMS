@@ -1,15 +1,16 @@
 <div class="ui container" style="min-height:65%;"> <br><br>
-<?=form_open('main/e');?>
+<?=form_open('main/updateUser');?>
  <div class="ui form">
   <table cellpadding="5" border="0" >
-     <tr>
+  <tr>
        <td>ID Number</td>
-       <td> <?=form_input('txtid',$get_edit->idNumber);?></td>
-        <?=form_hidden('txtid',$get_edit->hall_id)?>
-    </tr>
+       <td><?=form_input('id',$get_edit->idNumber)?>
+       </td>
+    <tr>
     <tr>
        <td>First Name</td>
        <td><?=form_input('Firstname',$get_edit->fname)?>
+           <?=form_hidden('txtid',$get_edit->idNumber);?>
        </td>
     <tr>
        <td>Last Name</td>
@@ -23,8 +24,8 @@
     </tr>
     <tr><td><p style="margin:12px;"></p></td></tr>
     <tr>
-    	<td>Position</td>
-    	<td><?=form_textarea('pos',$get_edit->position)?></td>
+      <td>Position</td>
+      <td><?=form_textarea('pos',$get_edit->position)?></td>
     </tr>
     <tr>
       <td>Email</td>
