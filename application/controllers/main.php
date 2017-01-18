@@ -7,10 +7,10 @@ class main extends CI_Controller {
      public function __construct()
       {
         parent::__construct();
-        $this->load->model('user/user_model','m');
+        $this->load->model('model_users','m');
         $this->load->model('hallModel','hallM');
         $this->load->model('build_m','bm');
-        $this->load->model('user_model','um');
+        $this->load->model('model_users','um');
       }       
 
 		public function index()
@@ -385,6 +385,7 @@ class main extends CI_Controller {
     public function updateUser()
     {
       $this->um->update();
+        redirect('main/displayUser');
     }
 
     public function edit_User($id)

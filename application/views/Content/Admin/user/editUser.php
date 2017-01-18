@@ -4,28 +4,41 @@
   <table cellpadding="5" border="0" >
   <tr>
        <td>ID Number</td>
-       <td><?=form_input('id',$get_edit->idNumber)?>
+       <td><?=form_input('idNum',$get_edit->idNumber)?>
        </td>
-    <tr>
+      </tr>
+      <tr>
+    <td><p style="margin:12px;"></p></td>
+    </tr>
     <tr>
        <td>First Name</td>
        <td><?=form_input('Firstname',$get_edit->fname)?>
            <?=form_hidden('txtid',$get_edit->idNumber);?>
        </td>
-    <tr>
+    </tr>
+     <tr>
+    <td><p style="margin:12px;"></p></td>
+    </tr>
+      <tr>
        <td>Last Name</td>
        <td><?=form_input('lastname',$get_edit->lname);?></td>
     </tr>
+    <tr>
+    <td><p style="margin:12px;"></p></td>
     </tr>
-    <tr><td><p style="margin:12px;"></p></td></tr>
    <tr>
       <td>Department</td>
       <td><?=form_input('dept',$get_edit->dept)?></td>
     </tr>
-    <tr><td><p style="margin:12px;"></p></td></tr>
+    <tr>
+    <td><p style="margin:12px;"></p></td>
+    </tr>
     <tr>
       <td>Position</td>
       <td><?=form_textarea('pos',$get_edit->position)?></td>
+    </tr>
+    <tr>
+    <td><p style="margin:12px;"></p></td>
     </tr>
     <tr>
       <td>Email</td>
