@@ -12,7 +12,7 @@ class HallModel extends CI_Model
         
         $this->db->select("*");
         $this->db->from('hall');
-        $this->db->join('building','building.build_id = hall.hall_buildloc','left');
+        $this->db->join('building','building.build_id = hall.hall_building','left');
         return $this->db->get()->result();
         //$query = $this->db->get('hall');
         //return $query->result();
@@ -77,7 +77,7 @@ class HallModel extends CI_Model
   
    function search($keyword)
     {
-        $this->db->join('building','building.build_id = hall.hall_buildloc','left');
+        $this->db->join('building','building.build_id = hall.hall_building','left');
         $this->db->like('hall_name',$keyword);
         $query  =   $this->db->get('hall');
         return $query->result();

@@ -1,3 +1,4 @@
+
 <div class="ui container"><br>
   <h1 align="center">Hall Management</h1><br>
     <!-- search box -->
@@ -48,7 +49,7 @@
       <td><?=$row->build_name?></td>
       <td><?=$row->hall_description?></td>
       <td><?=$row->hall_price?>.00</td>
-      <td><?=$row->hall_approver ?></td>
+      <td></td>
       <td><?=$row->hall_lastmodified?></td>
       <td>
        <div class="column mycenter">
@@ -138,7 +139,6 @@
       Cancel
     </div>
     <input  value="Save" type="submit" class="ui green ok inverted button">
-
   </div>
   <?=form_close();?>
 

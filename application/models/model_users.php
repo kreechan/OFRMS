@@ -5,7 +5,7 @@ class Model_users extends CI_Model
 
 		$condition = "email =" . "'" . $data['email'] . "'";
 		$this->db->select('email');
-		$this->db->from('test');
+		$this->db->from('users');
 		$this->db->where($condition);
 		$this->db->limit(1);
 		$query = $this-> db ->get();
@@ -37,7 +37,8 @@ class Model_users extends CI_Model
 		$query = $this -> db -> get('users');
 		if($query -> num_rows() == 1)
 		{
-			return true;
+			// return true;
+			return $query->row_array();
 		}
 		else
 		{
@@ -57,9 +58,9 @@ class Model_users extends CI_Model
 			$this->db->flush_cache();
 
 			if($email)
-				$this->db->where('email', $email);
+				$this->db->where('idNumber', $email);
 
-			return $this->db->update('test', $newpassword);
+			return $this->db->update('user', $newpassword);
     }
     public function getUser($returnASArray = false)
    {
@@ -136,5 +137,35 @@ class Model_users extends CI_Model
     return $query->row();
   }
 
+    public function userfind(){
+
+    	$this->db->select("fname, lname, dept");
+    	$this->db->from('users');
+    	$query=$this->db->get();
+    	return $query->result();
+    }
+
+    public function book_insert($input){
+
+          
+          $this->db->insert('reservation',$input);
+
+          if($this->db->affected_rows()>0)
+          {
+          	return true;
+          }else{
+          	return false;
+          }
+    }
+
+    public function retrieve_reservations($date){
+
+	  	return $this->db->select('*')
+    	->from('reservation')
+    	->where("DATE(event_datetime)='{$date}'")
+    	->get()
+    	->result_array();
+
+    }
 }
 ?>

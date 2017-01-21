@@ -1,5 +1,4 @@
 <!-- End of top menu -->
-
  <div class="ui link centered cards five doubling" > <!-- or use "three doubling" -->
   <div class="card">
     <div class="image">
