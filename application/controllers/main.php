@@ -13,13 +13,19 @@ class main extends CI_Controller {
         $this->load->model('model_users','um');
       }       
 
-		public function index()
-	{
-    $this->login();  
+		public function index(){
+        
+            $this->login();  
     }
 
     public function login(){
-    $this->load->view('landingpage');
+
+      if($this->session->userdata('is_logged_in')){
+          $this->welcomepage();}
+        else{
+        // redirect('main/restricted');
+          $this->load->view('landingpage');
+       }
    
     }
 
@@ -179,6 +185,7 @@ class main extends CI_Controller {
     {
         $this->session->sess_destroy();
         redirect('main/login');
+        
      }
 
      public function addUser()
