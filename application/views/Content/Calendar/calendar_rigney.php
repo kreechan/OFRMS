@@ -263,14 +263,6 @@ text-align:;
               <td><textarea name="purpose" id="" cols="15" rows="5"></textarea></td>
           </div>
         </tr>
-
-        <tr>
-           <div class="field">
-              <td>Date Picked: &nbsp;</td>
-              <td><input type="text" id = "datepicked" value = ""></td>
-          </div>
-        </tr>
-
       </table>
   </div>
   </div>
