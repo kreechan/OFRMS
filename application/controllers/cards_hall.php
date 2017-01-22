@@ -5,11 +5,15 @@ class cards_hall extends CI_Controller {
     public function __construct()
       {
         parent::__construct();
-        $this->load->model('user/user_model','m');
+        $this->load->model('model_users','m');
         $this->load->model('hallModel','hallM');
         $this->load->model('build_m','bm');
+<<<<<<< HEAD
+        $this->load->model('model_users','um');
+=======
         $this->load->model('user_model','um');
         $this->load->model('model_users','mu');
+>>>>>>> origin/master
       } 
     public function rigneyHall(){
         $this->load->view('Header/Admin/adminHeader');  

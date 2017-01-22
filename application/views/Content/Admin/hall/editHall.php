@@ -1,4 +1,9 @@
+
 <?=form_open('main/updateHall');?>
+
+<div class="ui container">
+<div class="ui grid">
+<div class="eight wide column">
  <div class="ui form">
   <table cellpadding="5" border="0" >
     <tr>
@@ -13,10 +18,11 @@
     </tr>
     <tr>
     	<td>Building / Area Name  &nbsp;</td>
-    	<td><select class="ui dropdown" name="location">
-    	<?php foreach($buildings as $row):?>
-             <option value="<?=$row->build_id?>"><?=$row->build_name?></option>
-              <?php endforeach; ?>   
+    	<td>
+    	    <select class="ui dropdown" name="location">
+    	        <?php foreach($buildings as $row):?>
+                    <option value="<?=$row->build_id?>"><?=$row->build_name?></option>
+                <?php endforeach; ?>   
             </select>
         </td>
     </tr>
@@ -27,6 +33,7 @@
     </tr>
     <tr><td><p style="margin:10px;"></p></td></tr>
     <tr>
+    
     	<td>Description</td>
     	<td><?=form_textarea('descp',$get_edit->hall_description);?></td>
     </tr>
@@ -38,3 +45,9 @@
   </table>
   </div>
 <?=form_close();?>
+</div>
+<div class="eight wide column">
+    <input class="ui massive button mybutton" value="APPROVE">
+</div>
+</div>
+</div>

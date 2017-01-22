@@ -181,6 +181,9 @@ class main extends CI_Controller {
         redirect('main/login');
      }
 
+<<<<<<< HEAD
+    
+=======
      public function addUser()
      {
       
@@ -194,6 +197,7 @@ class main extends CI_Controller {
         redirect('main/restricted');
        }
      }
+>>>>>>> origin/master
      public function addReservation()
      {
        
@@ -312,6 +316,7 @@ class main extends CI_Controller {
         {
         $data['get_edit'] =$this->hallM->get_edit($id);
         $data['buildings']= $this->bm->getBuilding();
+         $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader');
         $this->load->view('Content/Admin/hall/editHall',$data);
         $this->load->view('footer/footer');
@@ -427,6 +432,14 @@ class main extends CI_Controller {
     //-------------------------------------
  
 
+    public function displayUser()
+    {
+       $data['usersOutput'] = $this->um->getUser();
+       $this->load->view('Header/Admin/adminHeader'); 
+       $this->load->view('Content/Admin/user/userTable',$data);
+       $this->load->view('footer/footer');
+    } 
+    
     public function regUser()
     {
 
@@ -441,6 +454,8 @@ class main extends CI_Controller {
        }
     }
 
+<<<<<<< HEAD
+=======
 
    public function displayUser()
     {
@@ -458,6 +473,7 @@ class main extends CI_Controller {
 
     } 
  
+>>>>>>> origin/master
     public function addProcess()
     {
       $this->um->submit();
@@ -549,10 +565,13 @@ class main extends CI_Controller {
         redirect('main/restricted');
        }
      }
+    public function test()
+    {
+        
+        $myphpvar = $this->input->post('test');
+        echo "<script type='text/javascript'>alert(myphpvar);</script>";
+        
 
-     public function upload()
-     {
-      
-     }
+    }
 
 }   

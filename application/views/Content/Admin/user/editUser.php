@@ -47,7 +47,7 @@
     <tr><td><p style="margin:12px;"></p></td></tr>
     <tr>
         <td></td>
-        <td><?=form_submit('submit','save')?></td>
+        <td><button class="ui button mybutton" type="submit">save</button></td>
     </tr>  
   </table>
   </div>
