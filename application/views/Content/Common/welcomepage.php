@@ -16,7 +16,7 @@
           <!-- <td><//?=$row->hall_id?></td> -->
            <td style="letter-spacing: 0px">
              <span style="font-weight:bolder; font-size: 17px;"><?=$row->hall_name?></span><br>
-                <span>Location: </span><?=$row->hall_building?> <br>
+                <span>Location: </span><?=$row->hall_buildloc?> <br>
                 <span>Price: </span>P <?=$row->hall_price?>.00 <br>
                 <span>Description: </span><?=$row->hall_description?><br>
           </td>
