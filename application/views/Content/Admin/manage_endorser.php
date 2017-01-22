@@ -44,6 +44,7 @@
 </div>
 </div>
 </div>
+<button class="ui button mybutton" onClick="submitEndorser();">Submit</button>
 <script>
     var counter = 0;
     var arrX = [];  var arrOrder = []; //arrays
@@ -60,8 +61,12 @@
         arrX[i] = x;
         arrOrder[i] = counter;
         arrMerge[i] = [arrX[i],arrOrder[i]];
-        //alert(arrMerge[i]);
+       // alert(arrMerge[i]);
      });
  });
+    function submitEndorser()
+    {
+
+    }
 </script>
 

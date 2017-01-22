@@ -98,12 +98,9 @@ class main extends CI_Controller {
     $this->form_validation->set_rules('password', 'Password' , 'required');
          
          if ($this->form_validation->run()){
-          // get user details
-
             $data = array(
                 'email' => $this->input->post('idnumber'),
-                'is_logged_in' => 1,
-                'user_data' => $this->model_users->can_log_in()
+                'is_logged_in' => 1
                 );
 
             $this->session->set_userdata($data);
@@ -127,45 +124,25 @@ class main extends CI_Controller {
     
      public function welcomepage()
     {   
-       if($this->session->userdata('is_logged_in'))
-         {
-            $data['halls']= $this->hallM->getHall();
-            $this->load->view('Header/Admin/adminHeader'); 
-            $this->load->view('Content/common/welcomepage',$data);
-            $this->load->view('footer/footer'); 
-            }
-        else{
-        redirect('main/restricted');
-       }
-             
+        $data['halls']= $this->hallM->getHall();
+        $this->load->view('Header/Admin/adminHeader'); 
+        $this->load->view('Content/common/welcomepage',$data);
+        $this->load->view('footer/footer'); 
+         
     }
     
     public function restricted(){
         $this->load->view('restricted');
     }
      public function myaccount(){
-
-      if($this->session->userdata('is_logged_in'))
-        {
          $this->load->view('Header/Admin/adminHeader'); 
         $this->load->view('Content/common/myaccount');
         $this->load->view('footer/footer'); 
-        }
-        else{
-        redirect('main/restricted');
-       }
     }
     public function mybookings(){
-
-      if($this->session->userdata('is_logged_in'))
-        {
          $this->load->view('Header/Admin/adminHeader'); 
         $this->load->view('Content/common/bookingsteps');
         $this->load->view('footer/footer'); 
-         }
-        else{
-        redirect('main/restricted');
-       }
     }
     
      
@@ -187,45 +164,28 @@ class main extends CI_Controller {
         redirect('main/login');
         
      }
-
-     public function addUser()
-     {
-      
-      if($this->session->userdata('is_logged_in'))
-        {  
-        $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/common/registration_view');
+    public function changPass()
+    {
+        $this->load->view('Header/Admin/adminHeader'); 
+        $this->load->view('Content/common/changePassword');
         $this->load->view('footer/footer'); 
-         }
-        else{
-        redirect('main/restricted');
-       }
+        
      }
+
+    
      public function addReservation()
      {
-       
-      if($this->session->userdata('is_logged_in'))
-        { 
+        
         $this->load->view('Header/Admin/adminHeader');  
         $this->load->view('Content/common/facilitycards');
         $this->load->view('footer/footer'); 
-         }
-        else{
-        redirect('main/restricted');
-       }
      }
    
 
      public function changepass(){
-       if($this->session->userdata('is_logged_in'))
-        {
         $this->load->view('header/common/userHeader');
         $this->load->view('content/common/changePassword');
         $this->load->view('footer/footer');
-          }
-        else{
-        redirect('main/restricted');
-       }
     }
 
     public function changepassword(){
@@ -242,7 +202,7 @@ class main extends CI_Controller {
 
           echo validation_errors();
         }else{
-          $email = $this->session->userdata('idNumber');
+          $email = $this->session->userdata('email');
 
           $newpassword = array (
                                 'password' => $this->input->post('newpassword')
@@ -269,17 +229,11 @@ class main extends CI_Controller {
     {
         // display the list of halls
 
-      if($this->session->userdata('is_logged_in'))
-        {
         $data['halls']= $this->hallM->getHall();
         $data['buildings']= $this->bm->getBuilding();
         $this->load->view('Header/Admin/adminHeader');  
         $this->load->view('Content/Admin/hall/hallDisplay',$data);
         $this->load->view('footer/footer'); 
-          }
-        else{
-        redirect('main/restricted');
-       }
 
     }
 
@@ -299,33 +253,20 @@ class main extends CI_Controller {
 
    public function updateHall()
    {
-
-      if($this->session->userdata('is_logged_in'))
-        {
         $data['halls'] = $this->hallM->get_update();
         $this->load->view('Header/Admin/adminHeader');  
         $this->load->view('Content/Admin/hall/hallDisplay',$data);
         $this->load->view('footer/footer'); 
-          }
-        else{
-        redirect('main/restricted');
-       }
    }
     
      public function editHall($id)
    {
-
-    if($this->session->userdata('is_logged_in'))
-        {
         $data['get_edit'] =$this->hallM->get_edit($id);
         $data['buildings']= $this->bm->getBuilding();
+         $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader');
         $this->load->view('Content/Admin/hall/editHall',$data);
         $this->load->view('footer/footer');
-          }
-        else{
-        redirect('main/restricted');
-       }
    }
   
    public function deleteHall($id)
@@ -335,18 +276,11 @@ class main extends CI_Controller {
 
    function search_keyword()
     {
-
-      if($this->session->userdata('is_logged_in'))
-        {
         $keyword       = $this->input->post('keyword');
         $data['halls'] = $this->hallM->search($keyword);
         $this->load->view('Header/Admin/adminHeader');  
         $this->load->view('Content/Admin/hall/hallDisplay',$data);
         $this->load->view('footer/footer'); 
-         }
-        else{
-        redirect('main/restricted');
-       }
     }
    // ---------------------------------
     //  -------   BUILDING ------------
@@ -354,17 +288,10 @@ class main extends CI_Controller {
 
      public function viewBuilding()
      {
-
-      if($this->session->userdata('is_logged_in'))
-        {
         $data['buildings']= $this->bm->getBuilding();
         $this->load->view('Header/admin/adminHeader');  
         $this->load->view('Content/Admin/Building/bDisplay',$data);
         $this->load->view('footer/footer'); 
-         }
-        else{
-        redirect('main/restricted');
-       }
      }
      public function submitBuilding()
      {
@@ -381,31 +308,18 @@ class main extends CI_Controller {
     
     public function updateBuilding()
     {
-      if($this->session->userdata('is_logged_in'))
-        {
-          $data['buildings']=$this->bm->update();
-          $this->load->view('Header/Admin/adminHeader'); 
-          $this->load->view('Content/Admin/Building/bDisplay',$data);
-          $this->load->view('footer/footer'); 
-           }
-        else{
-        redirect('main/restricted');
-       }
+      $data['buildings']=$this->bm->update();
+      $this->load->view('Header/Admin/adminHeader'); 
+      $this->load->view('Content/Admin/Building/bDisplay',$data);
+      $this->load->view('footer/footer'); 
     }
 
    public function editBuilding($id)
    {
-
-    if($this->session->userdata('is_logged_in'))
-        {
       $data['get_edit'] =$this->bm->get_edit($id);
       $this->load->view('Header/Admin/adminHeader'); 
       $this->load->view('Content/Admin/Building/editBuild',$data);
       $this->load->view('footer/footer'); 
-       }
-        else{
-        redirect('main/restricted');
-       }
    }
   
   public function deleteBuild($id)
@@ -415,18 +329,11 @@ class main extends CI_Controller {
 
      function search_building()
     {
-
-      if($this->session->userdata('is_logged_in'))
-        {
         $keyword       = $this->input->post('keyword');
         $data['build'] = $this->bm->search($keyword);
         $this->load->view('Header/admin/adminHeader');  
         $this->load->view('Content/Admin/Building/bDisplay',$data);
         $this->load->view('footer/footer'); 
-         }
-        else{
-        redirect('main/restricted');
-       }
     }
 
     //------------------------------------
@@ -434,37 +341,21 @@ class main extends CI_Controller {
     //-------------------------------------
  
 
+    public function displayUser()
+    {
+       $data['usersOutput'] = $this->um->getUser();
+       $this->load->view('Header/Admin/adminHeader'); 
+       $this->load->view('Content/Admin/user/userTable',$data);
+       $this->load->view('footer/footer');
+    } 
+    
     public function regUser()
     {
-
-      if($this->session->userdata('is_logged_in'))
-        {
-          $this->load->view('Header/Admin/adminHeader'); 
-          $this->load->view('Content/Common/registration_view');
-          $this->load->view('footer/footer');
-            }
-        else{
-        redirect('main/restricted');
-       }
+      $this->load->view('Header/Admin/adminHeader'); 
+      $this->load->view('Content/Common/registration_view');
+      $this->load->view('footer/footer');
     }
 
-
-   public function displayUser()
-    {
-
-      if($this->session->userdata('is_logged_in'))
-        {
-         $data['usersOutput'] = $this->um->getUser();
-         $this->load->view('Header/Admin/adminHeader'); 
-         $this->load->view('Content/Admin/user/userTable',$data);
-         $this->load->view('footer/footer');
-         }
-        else{
-        redirect('main/restricted');
-       }
-
-    } 
- 
     public function addProcess()
     {
       $this->um->submit();
@@ -472,31 +363,19 @@ class main extends CI_Controller {
 
     public function addButton()
     {
-
-    if($this->session->userdata('is_logged_in'))
-        {
       $this->load->view('Header/Admin/adminHeader'); 
       $this->load->view('Content/Common/registration_view');
       $this->load->view('footer/footer');
-        }
-        else{
-        redirect('main/restricted');
-       }
     }
 
     public function searchUsers()
     {
-      if($this->session->userdata('is_logged_in'))
-        {
+
        $keyword       = $this->input->post('keyword');
        $data['usersOutput'] = $this->um->search($keyword);
        $this->load->view('Header/Admin/adminHeader'); 
        $this->load->view('Content/Admin/user/userTable',$data);
        $this->load->view('footer/footer');
-        }
-        else{
-        redirect('main/restricted');
-       }
     }
 
     public function deleteUsers($id)
@@ -512,16 +391,10 @@ class main extends CI_Controller {
 
     public function edit_User($id)
     {
-      if($this->session->userdata('is_logged_in'))
-        {
-        $data['get_edit'] = $this->um->get_edit($id);
-        $this->load->view('Header/Admin/adminHeader'); 
-        $this->load->view('Content/Admin/user/editUser',$data);
-        $this->load->view('footer/footer'); 
-       }
-        else{
-        redirect('main/restricted');
-       }
+      $data['get_edit'] = $this->um->get_edit($id);
+      $this->load->view('Header/Admin/adminHeader'); 
+      $this->load->view('Content/Admin/user/editUser',$data);
+      $this->load->view('footer/footer'); 
     }
 
     //-------------------
@@ -530,36 +403,28 @@ class main extends CI_Controller {
 
      public function manageEndorser()
      {
-       if($this->session->userdata('is_logged_in'))
-        {
-        $data['usersOutput'] = $this->um->getUser();
+         $data['usersOutput'] = $this->um->getUser();
         $this->load->view('Header/Admin/adminHeader');  
         $this->load->view('Content/admin/manage_endorser',$data);
-        $this->load->view('footer/footer');
-        }else{
-        redirect('main/restricted');
-       }
-
+        $this->load->view('footer/footer'); 
      }
 
      public function searchEndorser()
      {
 
-      if($this->session->userdata('is_logged_in'))
-        {
-         $keyword       = $this->input->post('keyword');
-         $data['usersOutput'] = $this->um->search($keyword);
-         $this->load->view('Header/Admin/adminHeader'); 
-         $this->load->view('Content/Admin/manage_endorser',$data);
-         $this->load->view('footer/footer');
-       }else{
-        redirect('main/restricted');
-       }
+       $keyword       = $this->input->post('keyword');
+       $data['usersOutput'] = $this->um->search($keyword);
+       $this->load->view('Header/Admin/adminHeader'); 
+       $this->load->view('Content/Admin/manage_endorser',$data);
+       $this->load->view('footer/footer');
      }
+    public function test()
+    {
+        
+        $myphpvar = $this->input->post('test');
+        echo "<script type='text/javascript'>alert(myphpvar);</script>";
+        
 
-     public function upload()
-     {
-      
-     }
+    }
 
 }   

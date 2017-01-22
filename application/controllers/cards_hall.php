@@ -10,13 +10,16 @@ class cards_hall extends CI_Controller {
         $this->load->model('build_m','bm');
         // $this->load->model('user_model','um');
         $this->load->model('model_users','mu');
+        $this->load->model('model_users','m');
+        $this->load->model('hallModel','hallM');
+        $this->load->model('build_m','bm');
       } 
     public function rigneyHall(){
         $this->load->view('Header/Admin/adminHeader');  
         $this->load->view('Content/calendar/calendar_rigney');
         $this->load->view('footer/footer');   
         $user=$this->session->set_userdata('logged_in')['idNumber'];
-        $this->data['post'] = $this->mu->userfind($user);
+        $this->data['post'] = $this->m->userfind($user);
         $this->load->helper('form'); 
     }
     public function SASavr(){
