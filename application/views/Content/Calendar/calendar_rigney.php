@@ -267,7 +267,7 @@ text-align:;
         <tr>
            <div class="field">
               <td>Date Picked: &nbsp;</td>
-              <td><input type="text" id = "datepicked" value = ""></input></td>
+              <td><input type="text" id = "datepicked" value = ""></td>
           </div>
         </tr>
 
