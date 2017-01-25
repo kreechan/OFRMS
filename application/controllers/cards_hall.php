@@ -14,44 +14,14 @@ class cards_hall extends CI_Controller {
         $this->load->model('hallModel','hallM');
         $this->load->model('build_m','bm');
       } 
-    public function rigneyHall(){
+    public function calendar(){
+        $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/calendar/calendar_rigney');
+        $this->load->view('Content/calendar/calendarReserve',$data);
         $this->load->view('footer/footer');   
         $user=$this->session->set_userdata('logged_in')['idNumber'];
         $this->data['post'] = $this->m->userfind($user);
         $this->load->helper('form'); 
     }
-    public function SASavr(){
-        $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/calendar/calendar_rigney');
-        $this->load->view('footer/footer');
-        $user=$this->session->set_userdata('logged_in')['idNumber'];
-        $this->data['post'] = $this->mu->userfind($user);
-        $this->load->helper('form');     
-    }
-    public function BCT(){
-        $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/calendar/calendar_rigney');
-        $this->load->view('footer/footer');
-        $user=$this->session->set_userdata('logged_in')['idNumber'];
-        $this->data['post'] = $this->mu->userfind($user);
-        $this->load->helper('form');     
-    }
-    public function SAFADtheater(){
-        $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/calendar/calendar_rigney');
-        $this->load->view('footer/footer');
-        $user=$this->session->set_userdata('logged_in')['idNumber'];
-        $this->data['post'] = $this->mu->userfind($user);
-        $this->load->helper('form');     
-    }
-    public function MRtheater(){
-        $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/calendar/calendar_rigney');
-        $this->load->view('footer/footer');
-        $user=$this->session->set_userdata('logged_in')['idNumber'];
-        $this->data['post'] = $this->mu->userfind($user);
-        $this->load->helper('form');     
-    }
+   
 }   

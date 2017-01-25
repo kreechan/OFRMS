@@ -175,9 +175,9 @@ class main extends CI_Controller {
     
      public function addReservation()
      {
-        
+        $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/common/facilitycards');
+        $this->load->view('Content/common/facilitycards',$data);
         $this->load->view('footer/footer'); 
      }
    
@@ -215,12 +215,7 @@ class main extends CI_Controller {
         }
     }
     
-    public function calendar(){
-
-        $this->load->view('Header/Common/userHeader');
-        $this->load->view('Content/Common/calendar_view');
-        $this->load->view('footer/footer');
-    }
+   
 
    // ----  HALL  -------- //
    
@@ -263,7 +258,7 @@ class main extends CI_Controller {
    {
         $data['get_edit'] =$this->hallM->get_edit($id);
         $data['buildings']= $this->bm->getBuilding();
-         $data['halls']= $this->hallM->getHall();
+        $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader');
         $this->load->view('Content/Admin/hall/editHall',$data);
         $this->load->view('footer/footer');
@@ -404,6 +399,7 @@ class main extends CI_Controller {
      public function manageEndorser()
      {
          $data['usersOutput'] = $this->um->getUser();
+         $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader');  
         $this->load->view('Content/admin/manage_endorser',$data);
         $this->load->view('footer/footer'); 

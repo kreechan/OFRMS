@@ -63,7 +63,7 @@ class client_reservation extends CI_Controller {
  		
  		if($this->model_users->book_insert($input)==true){
  			$this->session->set_flashdata('success',true);
- 			redirect('main/addReservation');
+ 			redirect('cards_hall/calendar');
  		}
  }
 

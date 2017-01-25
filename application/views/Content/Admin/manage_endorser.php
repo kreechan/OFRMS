@@ -32,12 +32,25 @@
 </div>
 <div class="seven wide column">
 <table class="ui table" style="cursor:pointer;">
+   <thead>
+          
+            <th><select class="ui dropdown fluid" name="hallname">
+           <?php foreach($halls as $row):?>
+             <option value="<?=$row->hall_name?>"><?=$row->hall_name?></option>
+              <?php endforeach; ?>    
+        </select></th>
+          
+    
+</thead>
     <tbody id="donePick">
     </tbody>
 </table>
 </div>
 <div class="one wide column">
-<table class="ui selectable table" >
+<table class="ui selectable table">
+   <thead >
+<th style="padding: 32px;"></th>
+</thead>
     <tbody id="order">
     </tbody>
 </table>
@@ -61,12 +74,8 @@
         arrX[i] = x;
         arrOrder[i] = counter;
         arrMerge[i] = [arrX[i],arrOrder[i]];
-       // alert(arrMerge[i]);
+       //alert(arrMerge[1][1]);
      });
  });
-    function submitEndorser()
-    {
-
-    }
 </script>
 
