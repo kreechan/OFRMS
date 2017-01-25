@@ -11,6 +11,7 @@ class main extends CI_Controller {
         $this->load->model('hallModel','hallM');
         $this->load->model('build_m','bm');
         $this->load->model('model_users','um');
+        $this->load->model('approver_m','app_m');
       }       
 
 		public function index(){
@@ -416,11 +417,27 @@ class main extends CI_Controller {
      }
     public function test()
     {
-        
         $myphpvar = $this->input->post('test');
-        echo "<script type='text/javascript'>alert(myphpvar);</script>";
-        
+        echo "<script type='text/javascript'>alert(myphpvar);</script>"; 
 
+    }
+    public function insertEndorser()
+    {
+      $arrayName = $this->input->post('arrX');
+      $decodeName= json_decode($arrayName,true); // will return an array
+        
+      $arraySerial = $this->input->post('arrOrder');
+      $decodeSerial =  json_decode($arraySerial ,true); // will return an array
+        
+       $hallname = $this->input->post('hallname');
+      $decodeHallname=  json_decode($hallname ,true); // will return an array
+        
+       for($i=0;$i<count($decodeName);$i++){
+      $data[] = array('endorser_user'=>$decodeName[$i],'endorser_level'=>$decodeSerial[$i], 'endorse_hall'=>$decodeHallname[0]);
+      }
+        
+        
+      $this->app_m->insertEndorser_model($data);
     }
 
 }   
