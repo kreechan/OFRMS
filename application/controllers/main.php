@@ -17,6 +17,20 @@ public function index(){
     
         $this->login();  
 }
+     public function __construct()
+      {
+        parent::__construct();
+        $this->load->model('model_users','m');
+        $this->load->model('hallModel','hallM');
+        $this->load->model('build_m','bm');
+        $this->load->model('model_users','um');
+        $this->load->model('approver_m','app_m');
+      }       
+
+		public function index(){
+        
+            $this->login();  
+    }
 
 public function login(){
 
@@ -26,6 +40,16 @@ public function login(){
     // redirect('main/restricted');
       $this->load->view('landingpage');
    }
+      if($this->session->userdata('is_logged_in')){
+          $this->welcomepage();}
+        else{
+        // redirect('main/restricted');
+          //$this->load->view('landingpage');
+            $this->load->view('Header/Admin/adminHeader'); 
+            $this->load->view('content/Admin/reservationrequests'); 
+       }
+   
+    }
 
 }
 
@@ -183,9 +207,9 @@ public function login_validation(){
     
      public function addReservation()
      {
-        
+        $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/common/facilitycards');
+        $this->load->view('Content/common/facilitycards',$data);
         $this->load->view('footer/footer'); 
      }
    
@@ -226,12 +250,7 @@ public function login_validation(){
         }
     }
     
-    public function calendar(){
-
-        $this->load->view('Header/Common/userHeader');
-        $this->load->view('Content/Common/calendar_view');
-        $this->load->view('footer/footer');
-    }
+   
 
    // ----  HALL  -------- //
    
@@ -248,14 +267,14 @@ public function login_validation(){
 
     }
 
-//   public function addHall()
-//   {
-//       // displays the form
-//
-//       $this->load->view('Header/admin/adminheader');  
-//       $this->load->view('Content/Admin/hall/addHall');
-//       $this->load->view('footer/footer');
-//   }
+  public function addHall()
+   {
+      // displays the form
+
+      $this->load->view('Header/admin/adminheader');  
+      $this->load->view('Content/Admin/hall/addHall');
+      $this->load->view('footer/footer');
+   }
   
    public function processAdd()
    {
@@ -274,7 +293,7 @@ public function login_validation(){
    {
         $data['get_edit'] =$this->hallM->get_edit($id);
         $data['buildings']= $this->bm->getBuilding();
-         $data['halls']= $this->hallM->getHall();
+        $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader');
         $this->load->view('Content/Admin/hall/editHall',$data);
         $this->load->view('footer/footer');
@@ -293,9 +312,8 @@ public function login_validation(){
         $this->load->view('Content/Admin/hall/hallDisplay',$data);
         $this->load->view('footer/footer'); 
     }
-   // ---------------------------------
-    //  -------   BUILDING ------------
-    // ---------------------------------
+
+          // BUILDING
 
      public function viewBuilding()
      {
@@ -309,12 +327,12 @@ public function login_validation(){
          $this->bm->addBuilding();
      }
 
-//     public function viewAddBuilding()
-//     {
-//        $this->load->view('Header/Admin/adminHeader');  
-//        $this->load->view('Content/Admin/Building/addBuild');
-//        $this->load->view('footer/footer'); 
-//     }
+    public function viewAddBuilding()
+    {
+        $this->load->view('Header/Admin/adminHeader');  
+        $this->load->view('Content/Admin/Building/addBuild');
+        $this->load->view('footer/footer'); 
+    }
 
     
     public function updateBuilding()
@@ -345,12 +363,9 @@ public function login_validation(){
         $this->load->view('Header/admin/adminHeader');  
         $this->load->view('Content/Admin/Building/bDisplay',$data);
         $this->load->view('footer/footer'); 
-    }
+    } 
 
-    //------------------------------------
-    //---------- USERS -------------------
-    //-------------------------------------
- 
+        // USER
 
     public function displayUser()
     {
@@ -408,13 +423,12 @@ public function login_validation(){
       $this->load->view('footer/footer'); 
     }
 
-    //-------------------
-   // ---- Endorser ------
-    //---------------------
+          // ENDORSER
 
      public function manageEndorser()
      {
          $data['usersOutput'] = $this->um->getUser();
+         $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader');  
         $this->load->view('Content/admin/manage_endorser',$data);
         $this->load->view('footer/footer'); 
@@ -431,11 +445,27 @@ public function login_validation(){
      }
     public function test()
     {
-        
         $myphpvar = $this->input->post('test');
-        echo "<script type='text/javascript'>alert(myphpvar);</script>";
-        
+        echo "<script type='text/javascript'>alert(myphpvar);</script>"; 
 
+    }
+    public function insertEndorser()
+    {
+      $arrayName = $this->input->post('arrX');
+      $decodeName= json_decode($arrayName,true); // will return an array
+        
+      $arraySerial = $this->input->post('arrOrder');
+      $decodeSerial =  json_decode($arraySerial ,true); // will return an array
+        
+       $hallname = $this->input->post('hallname');
+      $decodeHallname=  json_decode($hallname ,true); // will return an array
+        
+       for($i=0;$i<count($decodeName);$i++){
+      $data[] = array('endorser_user'=>$decodeName[$i],'endorser_level'=>$decodeSerial[$i], 'endorse_hall'=>$decodeHallname[0]);
+      }
+        
+        
+      $this->app_m->insertEndorser_model($data);
     }
 
 }   

@@ -37,6 +37,7 @@
     <div class="grid six column row">
     <div class="column"><button class="ui positive button fluid" type= "submit">Save</button></div>
     <div class="column"><button class="ui negative button fluid">Cancel</button></div>
+     
     </form>
      </div>
 

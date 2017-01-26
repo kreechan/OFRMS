@@ -1,5 +1,7 @@
-<link href='<?php echo base_url(); ?>assets/css/fullcalendar.css' rel='stylesheet' />
-<script src='<?php echo base_url(); ?>assets/js/moment.min.js'></script>
+<link href='<?php echo base_url(); ?>assets/css/fullcalendar.css' rel='stylesheet'/>
+<link href='<?php echo base_url(); ?>assets/css/calendar.min.css' rel='stylesheet'/>
+<script src='<?php echo base_url(); ?>assets/js/moment.min.js' ></script>
+<script src='<?php echo base_url(); ?>assets/js/calendar.min.js'></script>
 <script src='<?php echo base_url(); ?>assets/js/fullcalendar.min.js'></script>
 
 <script>
@@ -13,14 +15,13 @@
       data: {},
       url: '<?= base_url()."client_reservation/getReservations"?>',
       success: function(data){
-
      obj = JSON.parse(data);
     if(obj){
     $('#calendar').fullCalendar({
       header: {
         left: 'prev, today',
         center: 'title',
-        right: 'month, agendaWeek,agendaDay'
+        right: 'next'
       },
       height: 600,
       defaultDate: new Date(),
@@ -35,9 +36,7 @@
           
           eventClick: function(calEvent,jsEvent,view){
                 $('#calendarmodal').modal('show');
-          },
-          eventDrop: function(event, delta, revertFunc){
-            alert(event.title);
+   
           },
           dayClick: function(date, d){
               var date =  moment(date).format('YYYY-MM-DD');
@@ -47,7 +46,7 @@
                 console.log(res)
                 $('#eventlist').html('')
                 $(res.data).each(function(i,v){
-                  $('#eventlist').append('<li>'+'ACTIVITY: '+v.activity+ '<br>' + 'DEPARTMENT: '+ v.department + '<br>'+'START DATE AND TIME: '+moment(v.event_datetime).format('MMMM DD, YYYY hh:mm A')+ '<br>'+'END DATE AND TIME: ' +moment(v.event_endtime).format('MMMM DD, YYYY hh:mm A')+'</li>')
+                  $('#eventlist').append('<li>'+'<span style="font-weight: bolder;">ACTIVITY: '+v.activity+ '</span><br>' + 'DEPARTMENT: '+ v.department + '<br>'+'START DATE AND TIME: '+moment(v.event_datetime).format('MMMM DD, YYYY hh:mm A')+ '<br>'+'END DATE AND TIME: ' +moment(v.event_endtime).format('MMMM DD, YYYY hh:mm A')+'</li><div class="ui divider"></div>')
                 })
                 $('#calendarmodal').modal('show');
               })
@@ -69,7 +68,10 @@
 		
         $('#dosbutton').on('click', function(){
             $('#dosmodal').modal('setting', 'transition', 'fade left').modal('show');
-        })
+             $('#example2').calendar({
+  type: 'date'
+});
+        });
         
 	});
     
@@ -141,7 +143,7 @@ text-align:;
       <i class="archive icon"></i>
     </div>
     <div class="description">
-      <ul id="eventlist">
+      <ul id="eventlist" style="list-style-type:circle;">
       </ul>
     </div>
   </div>
@@ -157,7 +159,7 @@ text-align:;
     <?=form_open('client_reservation/add_reserve');?>
       <div class="ui form">
       <table>
-        <tr>
+        <tr style="display:none;" >
           <div class="field">
             <td>Firsname: &nbsp;</td>
             <td><input type="text" name="firstname" value="<?php echo $this->session->userdata('user_data')['fname'];?>"></td>
@@ -165,9 +167,7 @@ text-align:;
             <td><input type="text" name="lastname" value="<?php echo $this->session->userdata('user_data')['lname'];?>"></td>
           </div>
         </tr>
-        <tr>
-            <td><p style="margin:12px 0px;"></p></td>
-        </tr>
+       
         <tr>
           <div class="field">
             <td>Activity: &nbsp;</td>
@@ -180,7 +180,12 @@ text-align:;
         <tr>
           <div>
             <td>Hall Name: &nbsp;</td>
-            <td><input type="text" name="hallname"></td>
+            <td><select class="ui dropdown fluid" name="hallname">
+           <?php foreach($halls as $row):?>
+             <option value="<?=$row->hall_name?>"><?=$row->hall_name?></option>
+              <?php endforeach; ?>    
+    </select></td>
+            
           </div>
         </tr>
         <tr>
@@ -248,13 +253,92 @@ text-align:;
                     <option value="6:30 PM">6:30PM</option>
                 </select>
             </td>
+            
         </tr>
+        <tr>
+          <td>
+              <p style="margin:12px 0px;"></p>
+            </td>
+       </tr>
+        <tr>
+            <td>Date End:</td>
+            <td>
+             <div class="ui calendar" id="example2">
+    <div class="ui input left icon">
+      <i class="calendar icon"></i>
+      <input type="text" placeholder="Date" name="dateEnd">
+    </div>
+  </div>
+        </td>
+        </tr>
+         <tr>
+          <td>
+              <p style="margin:12px 0px;"></p>
+            </td>
+       </tr>
+<!--
+     <tr><td></td>
+         <td>
+                <input type="hidden" name="date" id="hidden-date">
+                <select  name="timestart" class="ui compact dropdown">
+                    <option value="7:30 AM">7:30AM</option>
+                    <option value="8:00 AM">8:00AM</option>
+                    <option value="8:30 AM">8:30AM</option>
+                    <option value="9:00 AM">9:00AM</option>
+                    <option value="9:30 AM">9:30AM</option>
+                    <option value="10:00 AM">10:00AM</option>
+                    <option value="10:30 AM">10:30AM</option>
+                    <option value="11:00 AM">11:00AM</option>
+                    <option value="11:30 AM">11:30AM</option>
+                    <option value="12:00 AM">12:00AM</option>
+                    <option value="12:30 PM">12:30PM</option>
+                    <option value="1:00PM">1:00PM</option>
+                    <option value="1:30PM">1:30PM</option>
+                    <option value="2:00PM">2:00PM</option>
+                    <option value="2:30PM">2:30PM</option>
+                    <option value="3:00PM">3:00PM</option>
+                    <option value="3:30 PM">3:30PM</option>
+                    <option value="4:00 PM">4:00PM</option>
+                    <option value="4:30 PM">4:30PM</option>
+                    <option value="5:00 PM">5:00PM</option>
+                    <option value="5:30 PM">5:30PM</option>
+                    <option value="6:00 PM">6:00PM</option>
+                    <option value="6:30 PM">6:30PM</option>
+                </select>
+                 - 
+                <select  name="timeend" class="ui compact dropdown">
+                    <option value="8:00 AM">8:00AM</option>
+                    <option value="8:30 AM">8:30AM</option>
+                    <option value="9:00 AM">9:00AM</option>
+                    <option value="9:30 AM">9:30AM</option>
+                    <option value="10:00 AM">10:00AM</option>
+                    <option value="10:30 AM">10:30AM</option>
+                    <option value="11:00 AM">11:00AM</option>
+                    <option value="11:30 AM">11:30AM</option>
+                    <option value="12:00 PM">12:00PM</option>
+                    <option value="12:30 PM">12:30PM</option>
+                    <option value="1:00 PM">1:00PM</option>
+                    <option value="1:30 PM">1:30PM</option>
+                    <option value="2:00 PM">2:00PM</option>
+                    <option value="2:30 PM">2:30PM</option>
+                    <option value="3:00 PM">3:00PM</option>
+                    <option value="3:30 PM">3:30PM</option>
+                    <option value="4:00 PM">4:00PM</option>
+                    <option value="4:30 PM">4:30PM</option>
+                    <option value="5:00 PM">5:00PM</option>
+                    <option value="5:30 PM">5:30PM</option>
+                    <option value="6:00 PM">6:00PM</option>
+                    <option value="6:30 PM">6:30PM</option>
+                </select>
+            </td>
+     </tr>
+
        <tr>
           <td>
               <p style="margin:12px 0px;"></p>
             </td>
        </tr>
-
+-->
        <tr>
            <div class="field">
               <td>Purpose: &nbsp;</td>
@@ -276,24 +360,8 @@ text-align:;
 <!--end of second modal-->
 <div>
 <center><img style="width: 1000px; margin-bottom:-20px; border-radius: 10px 10px 0px 0px;" src="<?php echo base_url('assets/images/tbhall2.jpg'); ?>" alt=""></center>
+  
 <div id='calendar'></div>
+
 </div>
-
-
-    
-<!--
-	select: function(start, end) {
-				var title = prompt('Event Title:');
-				var eventData;
-				if (title) {
-					eventData = {
-						title: title,
-						start: start,
-						end: end
-					};
-					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-				}
-				$('#calendar').fullCalendar('unselect');
-			},
--->
 

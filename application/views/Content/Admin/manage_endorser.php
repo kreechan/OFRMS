@@ -32,12 +32,25 @@
 </div>
 <div class="seven wide column">
 <table class="ui table" style="cursor:pointer;">
+   <thead>
+          
+            <th><select class="ui dropdown fluid" id="hallname">
+           <?php foreach($halls as $row):?>
+             <option value="<?=$row->hall_name?>"><?=$row->hall_name?></option>
+              <?php endforeach; ?>    
+        </select></th>
+          
+    
+</thead>
     <tbody id="donePick">
     </tbody>
 </table>
 </div>
 <div class="one wide column">
-<table class="ui selectable table" >
+<table class="ui selectable table">
+   <thead >
+<th style="padding: 32px;"></th>
+</thead>
     <tbody id="order">
     </tbody>
 </table>
@@ -46,27 +59,38 @@
 </div>
 <button class="ui button mybutton" onClick="submitEndorser();">Submit</button>
 <script>
-    var counter = 0;
+    var counter = 1;
     var arrX = [];  var arrOrder = []; //arrays
-    var i = -1; //iterate
+    var i = 0; //iterate
     var arrMerge = [];
  $(function(){
     $('.pickEndorser td').on('click', function(){
         $(this).hide();
     var x = $(this).html();
     $('#donePick').after('<tr><td>'+x+'</td></tr>');
-        counter++;
     $('#order').after('<tr><td>'+counter+'</td></tr>');
-        i++;
         arrX[i] = x;
         arrOrder[i] = counter;
-        arrMerge[i] = [arrX[i],arrOrder[i]];
-       // alert(arrMerge[i]);
+        i++;
+        counter++;
      });
  });
-    function submitEndorser()
-    {
-
-    }
+    function submitEndorser(){
+      
+      var jsonName = JSON.stringify(arrX);
+      var jsonSerial = JSON.stringify(arrOrder);
+      var hallname = [];
+      hallname[0] = $('#hallname').val();
+      var jsonHallname = JSON.stringify(hallname)
+    
+    $.ajax({
+      type: 'post',
+      data: {arrX:jsonName, arrOrder: jsonSerial, hallname:jsonHallname}, 
+      url: '<?= base_url()."main/insertEndorser"?>',
+      success: function(data){
+          alert("success!")
+      }
+      });
+}
 </script>
 
