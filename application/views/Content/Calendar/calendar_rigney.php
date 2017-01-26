@@ -1,9 +1,7 @@
 <link href='<?php echo base_url(); ?>assets/css/fullcalendar.css' rel='stylesheet' />
 <script src='<?php echo base_url(); ?>assets/js/moment.min.js'></script>
 <script src='<?php echo base_url(); ?>assets/js/fullcalendar.min.js'></script>
-<?php if($this->session->flashdata('success')): ?>
-<script>alert('success!');</script>
-<?php endif; ?>
+
 <script>
 
 	$(document).ready(function() {
@@ -162,9 +160,9 @@ text-align:;
         <tr>
           <div class="field">
             <td>Firsname: &nbsp;</td>
-            <td><input type="text" name="firstname" value="<?php echo $this->session->userdata('user_data')['fname']; ?>"></td>
+            <td><input type="text" name="firstname" value="<?php echo $this->session->userdata('user_data')['fname'];?>"></td>
             <td>Lastname: &nbsp;</td>
-            <td><input type="text" name="lastname" value="<?php echo $this->session->userdata('user_data')['lname']?>"></td>
+            <td><input type="text" name="lastname" value="<?php echo $this->session->userdata('user_data')['lname'];?>"></td>
           </div>
         </tr>
         <tr>
@@ -190,7 +188,7 @@ text-align:;
         </tr>
          <tr>
             <td>Department: &nbsp;</td>
-            <td><input type="text" name="department" value="<?php echo $this->session->userdata('user_data')['dept']?>"></td>
+            <td><input type="text" name="department" value="<?php echo $this->session->userdata('user_data')['dept'];?>"></td>
         </tr>
         <tr>
         <td><p style="margin:12px 0px;"></p></td>

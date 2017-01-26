@@ -33,11 +33,11 @@ class client_reservation extends CI_Controller {
  		
  	
 
- 		// 	$user=$this->session->set_userdata('logged_in')['idNumber'];
+ 		$user=$this->session->set_userdata('is_logged_in')['idNumber'];
 			// $this->load->model('model_users');
-			// $data = $this->model_user->userfind($user);
+			//$data = $this->model_user->userfind($user);
 
-			// $this->load->helper('form');
+		$this->load->helper('form');
  	}
 
  	public function add_reserve(){
