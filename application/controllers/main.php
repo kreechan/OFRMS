@@ -25,7 +25,9 @@ class main extends CI_Controller {
           $this->welcomepage();}
         else{
         // redirect('main/restricted');
-          $this->load->view('landingpage');
+          //$this->load->view('landingpage');
+            $this->load->view('Header/Admin/adminHeader'); 
+            $this->load->view('content/Admin/reservationrequests'); 
        }
    
     }
@@ -184,7 +186,7 @@ class main extends CI_Controller {
    
 
      public function changepass(){
-        $this->load->view('header/common/userHeader');
+        $this->load->view('Header/Admin/adminHeader');
         $this->load->view('content/common/changePassword');
         $this->load->view('footer/footer');
     }
