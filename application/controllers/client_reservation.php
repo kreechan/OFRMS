@@ -9,7 +9,6 @@ class client_reservation extends CI_Controller {
     	$this->load->view('Header/Common/userHeader');
     	$this->load->view('Content/Common/facilityCards');
     	$this->load->view('footer/footer');
- 	   
 
  	    }
 
@@ -33,11 +32,11 @@ class client_reservation extends CI_Controller {
  		
  	
 
- 		$user=$this->session->set_userdata('is_logged_in')['idNumber'];
+ 		// 	$user=$this->session->set_userdata('logged_in')['idNumber'];
 			// $this->load->model('model_users');
-			//$data = $this->model_user->userfind($user);
+			// $data = $this->model_user->userfind($user);
 
-		$this->load->helper('form');
+			// $this->load->helper('form');
  	}
 
  	public function add_reserve(){
@@ -61,11 +60,11 @@ class client_reservation extends CI_Controller {
 
  		$this->load->model('model_users');
  		
- 		if($this->model_users->book_insert($input)==true){
+ 		    if($this->model_users->book_insert($input)==true){
  			$this->session->set_flashdata('success',true);
  			redirect('cards_hall/calendar');
- 		}
- }
+ 		     }
+        }
 
  	public function retrieve_reservations(){
 
@@ -77,6 +76,5 @@ class client_reservation extends CI_Controller {
  		echo json_encode([
  			'data'=>$result
 		]);
-
  	}
 }

@@ -8,7 +8,4 @@ class Reservation extends CI_Model{
 	    $this->db->from('reservation');
 		return $this->db->get()->result();
 	}
-
-
-
 }

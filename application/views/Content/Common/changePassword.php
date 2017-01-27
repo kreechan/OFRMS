@@ -1,12 +1,23 @@
 
 <!-- End of top menu -->
+<div class="ui grid">
+<div class="three wide column">
+    
+    <div class="ui card">
+  <div class="image">
+    <img class="right floated mini ui image" src="<?php echo base_url('assets/images/fr.bucia.jpg')?>">
+  </div>
+</div>
+<h5 class="ui header">Fr. Eleno P. Bucia, SVD, MA</h5>
+<p class="ui sub header">VP Administrator / Approver</p>
+<!-- <a class="ui mybutton button fluid" href="<?php echo base_url('main/mybookings'); ?>">Booking Steps</a>-->
+</div>
+<div class="thirteen wide column">
 <form id="changePasswordForm" action = "<?php echo base_url() ?>main/changepassword" method = "post">
 <h3 class="ui myinverted top attached header">
   CHANGE PASSWORD
 </h3>
 <div class="ui attached segment">
-
-
   <div class="ui three column centered  grid stackable">
   <div class="column">
     <label for="">Old Password</label>
@@ -25,7 +36,7 @@
 </div>
  <div class="ui three column centered stackable grid">
   <div class="column">
-   <label for="">Confrim Password</label>
+   <label for="">Confirm Password</label>
     <div class="ui input fluid">
   <input placeholder="Confrim Password" type="password" name="confirmpassword">
 </div>
@@ -37,14 +48,15 @@
     <div class="grid six column row">
     <div class="column"><button class="ui positive button fluid" type= "submit">Save</button></div>
     <div class="column"><button class="ui negative button fluid">Cancel</button></div>
-     
-    </form>
      </div>
-
+     </div>
+     </div>
+    </form>
+     
+    
     <div class="column"></div>
-</div>
-</div>
 
+</div>
 
 
 </div>

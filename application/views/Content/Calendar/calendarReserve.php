@@ -3,7 +3,9 @@
 <script src='<?php echo base_url(); ?>assets/js/moment.min.js' ></script>
 <script src='<?php echo base_url(); ?>assets/js/calendar.min.js'></script>
 <script src='<?php echo base_url(); ?>assets/js/fullcalendar.min.js'></script>
-
+<?php if($this->session->flashdata('success')): ?>
+<script>alert('success!');</script>
+<?php endif; ?>
 <script>
 
 	$(document).ready(function() {
@@ -43,18 +45,19 @@
               $.getJSON('<?php echo base_url('client_reservation/retrieve_reservations')?>',{
                 date:date
               }).done(function(res){
-                console.log(res)
                 $('#eventlist').html('')
                 $(res.data).each(function(i,v){
-                  $('#eventlist').append('<li>'+'<span style="font-weight: bolder;">ACTIVITY: '+v.activity+ '</span><br>' + 'DEPARTMENT: '+ v.department + '<br>'+'START DATE AND TIME: '+moment(v.event_datetime).format('MMMM DD, YYYY hh:mm A')+ '<br>'+'END DATE AND TIME: ' +moment(v.event_endtime).format('MMMM DD, YYYY hh:mm A')+'</li><div class="ui divider"></div>')
+                    if (v.reservation_status === null)
+                    {
+                        $('#eventlist').append('<li>'+'<span style="font-weight: bolder;">ACTIVITY: '+v.activity+ '</span><br>' + 'DEPARTMENT: '+ v.department + '<br>'+'START DATE AND TIME: '+moment(v.event_datetime).format('MMMM DD, YYYY hh:mm A')+ '<br>'+'END DATE AND TIME: ' +moment(v.event_endtime).format('MMMM DD, YYYY hh:mm A')+'</li><div class="ui divider"></div>')
+                    }
                 })
                 $('#calendarmodal').modal('show');
               })
+              
               $('#hidden-date').val(date);
               
           }
-          
-       
 
         }); 
         } //if obj;
@@ -64,8 +67,7 @@
       } //end of success function
 
     });
-   
-		
+ 
         $('#dosbutton').on('click', function(){
             $('#dosmodal').modal('setting', 'transition', 'fade left').modal('show');
              $('#example2').calendar({
@@ -162,9 +164,9 @@ text-align:;
         <tr style="display:none;" >
           <div class="field">
             <td>Firsname: &nbsp;</td>
-            <td><input type="text" name="firstname" value="<?php echo $this->session->userdata('user_data')['fname'];?>"></td>
+            <td><input type="text" name="firstname" value="<?php echo $this->session->userdata('user_data')['fname']; ?>"></td>
             <td>Lastname: &nbsp;</td>
-            <td><input type="text" name="lastname" value="<?php echo $this->session->userdata('user_data')['lname'];?>"></td>
+            <td><input type="text" name="lastname" value="<?php echo $this->session->userdata('user_data')['lname']?>"></td>
           </div>
         </tr>
        
@@ -193,7 +195,7 @@ text-align:;
         </tr>
          <tr>
             <td>Department: &nbsp;</td>
-            <td><input type="text" name="department" value="<?php echo $this->session->userdata('user_data')['dept'];?>"></td>
+            <td><input type="text" name="department" value="<?php echo $this->session->userdata('user_data')['dept']?>"></td>
         </tr>
         <tr>
         <td><p style="margin:12px 0px;"></p></td>

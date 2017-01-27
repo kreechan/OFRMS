@@ -57,12 +57,10 @@ class Model_users extends CI_Model
 			$this->db->start_cache();
 			$this->db->flush_cache();
 
-			if($email){
+			if($email)
 				$this->db->where('idNumber', $email);
-			  return $this->db->update('users', $newpassword);
-      }else{
-        
-      }
+
+			return $this->db->update('user', $newpassword);
     }
     public function getUser($returnASArray = false)
    {

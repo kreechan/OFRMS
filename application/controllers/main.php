@@ -4,19 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class main extends CI_Controller {
 
 
-public function __construct(){
-    parent::__construct();
-    $this->load->model('model_users','m');
-    $this->load->model('hallModel','hallM');
-    $this->load->model('build_m','bm');
-    $this->load->model('model_users','um');
-    $this->load->library('session');
-}       
-
-public function index(){
-    
-        $this->login();  
-}
      public function __construct()
       {
         parent::__construct();
@@ -25,6 +12,7 @@ public function index(){
         $this->load->model('build_m','bm');
         $this->load->model('model_users','um');
         $this->load->model('approver_m','app_m');
+        $this->load->model('reservation','res_model');
       }       
 
 		public function index(){
@@ -32,152 +20,140 @@ public function index(){
             $this->login();  
     }
 
-public function login(){
+    public function login(){
 
-  if($this->session->userdata('is_logged_in')){
-      $this->welcomepage();}
-    else{
-    // redirect('main/restricted');
-      $this->load->view('landingpage');
-   }
       if($this->session->userdata('is_logged_in')){
           $this->welcomepage();}
         else{
         // redirect('main/restricted');
-          //$this->load->view('landingpage');
-            $this->load->view('Header/Admin/adminHeader'); 
-            $this->load->view('content/Admin/reservationrequests'); 
+          $this->load->view('landingpage');
+            
        }
    
     }
 
-}
-
-public function registration_show() {
-    $this->load->view('content/common/registration_view');
-}
-
-public function new_user_register(){
-
-    $this->load->helper(array('form','url'));
-    $this->load->library('form_validation');
-
-    $this->form_validation->set_rules('firstname' , 'Firstname' , 'trim|required');
-    $this->form_validation->set_rules('lastname' , 'Lastname' , 'trim|required');
-    $this->form_validation->set_rules('password' , 'Password' , 'trim|required');
-    $this->form_validation->set_rules('email' , 'Email' , 'trim|required');
-    $this->form_validation->set_rules('department' , 'Department' , 'trim|required');
-
-    if($this->form_validation->run()== FALSE){
-
-       // $this->load->view('content/common/registration_view');
+    public function registration_show() {
         $this->load->view('content/common/registration_view');
-    }else{
-
-    
-          $this->load->model('model_users');
-
-          $fname = $this->input->post('firstname');
-          $lname = $this->input->post('lastname');
-          $pw = $this->input->post('password');
-          $user_email = $this->input->post('email');
-          $dept = $this->input->post('department');
-
-          $data = array(
-
-              'firstname' => $fname,
-              'lastname' => $lname,
-              'password' => $pw,
-              'email' => $user_email,
-              'department' => $dept,
-
-              );
-
-          $result= $this->model_users->register_insert($data);
-
-              if($result == TRUE){
-
-                      $message = "User Succesfully Added! (send email)";
-                          echo "<script type='text/javascript'>alert('$message');</script>";
-                      $this->load->view('Landingpage', $data);
-              }else{
-
-                  $data['message_display'] = 'Email Already Exist';
-                  $this->load->view('content/common/registration_view', $data);
-              }            
     }
 
-}
+    public function new_user_register(){
+
+        
+        $this->load->helper(array('form','url'));
+
+        $this->load->library('form_validation');
+
+
+        $this->form_validation->set_rules('firstname' , 'Firstname' , 'trim|required');
+        $this->form_validation->set_rules('lastname' , 'Lastname' , 'trim|required');
+        $this->form_validation->set_rules('password' , 'Password' , 'trim|required');
+        $this->form_validation->set_rules('email' , 'Email' , 'trim|required');
+        $this->form_validation->set_rules('department' , 'Department' , 'trim|required');
+
+        if($this->form_validation->run()== FALSE){
+
+           // $this->load->view('content/common/registration_view');
+            $this->load->view('content/common/registration_view');
+        }else{
+
+        
+                $this->load->model('model_users');
+
+                $fname = $this->input->post('firstname');
+                $lname = $this->input->post('lastname');
+                $pw = $this->input->post('password');
+                $user_email = $this->input->post('email');
+                $dept = $this->input->post('department');
+
+                $data = array(
+
+                    'firstname' => $fname,
+                    'lastname' => $lname,
+                    'password' => $pw,
+                    'email' => $user_email,
+                    'department' => $dept,
+
+                    );
+
+            $result= $this->model_users->register_insert($data);
+
+                if($result == TRUE){
+
+                        $message = "User Succesfully Added! (send email)";
+                            echo "<script type='text/javascript'>alert('$message');</script>";
+                        $this->load->view('Landingpage', $data);
+                }else{
+
+                    $data['message_display'] = 'Email Already Exist';
+                    $this->load->view('content/common/registration_view', $data);
+                }
+            
+        }
+
+    }
     
-public function login_validation(){
+    public function login_validation(){
 
 
     $this->load->library('form_validation');
 
     $this->form_validation->set_rules('idnumber', 'ID Number' , 'required|trim|callback_validate_credentials');
     $this->form_validation->set_rules('password', 'Password' , 'required');
- 
-       if ($this->form_validation->run()){
-          $data = array(
-              'email' => $this->input->post('idnumber'),
-              'is_logged_in' => 1
-              );
+         
+         if ($this->form_validation->run()){
+            $data = array(
+                'email' => $this->input->post('idnumber'),
+                'is_logged_in' => 1
+                );
 
-          $this->session->set_userdata($data);
-           redirect('main/members');
-       }else{
-           $this->login();
-       }
-}
+            $this->session->set_userdata($data);
+             redirect('main/members');
+         }
+         else{
+             $this->login();
+         }
+    }
 
    public function members(){
         if($this->session->userdata('is_logged_in'))
         {
            $this->welcomepage();    
-       }else{
+       }
+        else{
         redirect('main/restricted');
        }
-   }
+    }
    
     
-   public function welcomepage(){   
-
-     if($this->session->userdata('is_logged_in')){
+     public function welcomepage()
+    {   
         $data['halls']= $this->hallM->getHall();
         $this->load->view('Header/Admin/adminHeader'); 
         $this->load->view('Content/common/welcomepage',$data);
-        $this->load->view('footer/footer');
-     }else{
-        redirect('main/restricted');
-       }   
+        $this->load->view('footer/footer');   
     }
     
     public function restricted(){
         $this->load->view('restricted');
     }
-
-    public function myaccount(){
-      if($this->session->userdata('is_logged_in')){
-        $this->load->view('Header/Admin/adminHeader'); 
+     public function myaccount(){
+         $this->load->view('Header/Admin/adminHeader'); 
         $this->load->view('Content/common/myaccount');
-        $this->load->view('footer/footer');
-      }else{
-        redirect('main/restricted');
-       }
-
+        $this->load->view('footer/footer'); 
     }
     public function mybookings(){
-
-      if($this->session->userdata('is_logged_in')){
-          $this->load->view('Header/Admin/adminHeader'); 
-          $this->load->view('Content/common/bookingsteps');
-          $this->load->view('footer/footer'); 
-      }else{
-        redirect('main/restricted');
-       }
+         $this->load->view('Header/Admin/adminHeader'); 
+        $this->load->view('Content/common/bookingsteps');
+        $this->load->view('footer/footer'); 
     }
-    
-     
+    public function reservationRequests(){
+
+ 		$data['req']=$this->res_model->getEvents();
+        
+         $this->load->view('Header/Admin/adminHeader'); 
+        $this->load->view('Content/admin/reservationrequests',$data);
+        $this->load->view('footer/footer'); 
+    }
     public function validate_credentials(){
         $this->load->model('model_users');
 
@@ -240,10 +216,7 @@ public function login_validation(){
                                 'password' => $this->input->post('newpassword')
                                 );
 
-          $message = "User Succesfully Added! (send email)";
-                            echo "<script type='text/javascript'>alert('$message');</script>";
           $this->model_users->change($email, $newpassword);
-
           //echo json_encode($this->session->userdata());
           redirect('main/members');
 
@@ -267,14 +240,14 @@ public function login_validation(){
 
     }
 
-  public function addHall()
-   {
-      // displays the form
-
-      $this->load->view('Header/admin/adminheader');  
-      $this->load->view('Content/Admin/hall/addHall');
-      $this->load->view('footer/footer');
-   }
+//   public function addHall()
+//   {
+//       // displays the form
+//
+//       $this->load->view('Header/admin/adminheader');  
+//       $this->load->view('Content/Admin/hall/addHall');
+//       $this->load->view('footer/footer');
+//   }
   
    public function processAdd()
    {
@@ -312,8 +285,9 @@ public function login_validation(){
         $this->load->view('Content/Admin/hall/hallDisplay',$data);
         $this->load->view('footer/footer'); 
     }
-
-          // BUILDING
+   // ---------------------------------
+    //  -------   BUILDING ------------
+    // ---------------------------------
 
      public function viewBuilding()
      {
@@ -327,12 +301,12 @@ public function login_validation(){
          $this->bm->addBuilding();
      }
 
-    public function viewAddBuilding()
-    {
-        $this->load->view('Header/Admin/adminHeader');  
-        $this->load->view('Content/Admin/Building/addBuild');
-        $this->load->view('footer/footer'); 
-    }
+//     public function viewAddBuilding()
+//     {
+//        $this->load->view('Header/Admin/adminHeader');  
+//        $this->load->view('Content/Admin/Building/addBuild');
+//        $this->load->view('footer/footer'); 
+//     }
 
     
     public function updateBuilding()
@@ -363,9 +337,12 @@ public function login_validation(){
         $this->load->view('Header/admin/adminHeader');  
         $this->load->view('Content/Admin/Building/bDisplay',$data);
         $this->load->view('footer/footer'); 
-    } 
+    }
 
-        // USER
+    //------------------------------------
+    //---------- USERS -------------------
+    //-------------------------------------
+ 
 
     public function displayUser()
     {
@@ -423,7 +400,9 @@ public function login_validation(){
       $this->load->view('footer/footer'); 
     }
 
-          // ENDORSER
+    //-------------------
+   // ---- Endorser ------
+    //---------------------
 
      public function manageEndorser()
      {
