@@ -20,14 +20,14 @@
   </div>
 </div>
 
-<table class="ui celled striped fixed selectable padded table">
+<table class="ui celled striped selectable padded table">
   <thead>
     <tr>
     <!-- <th class="center"></th> -->
     <th class="one wide" style="text-align:center; background-color:#f0f0f0"></th>
-    <th class="three wide" style="background-color:#f0f0f0">Hall Name</th>
+    <th class="two wide" style="background-color:#f0f0f0">Hall Name</th>
     <th class="two wide" style="background-color:#f0f0f0">Location</th>
-    <th class="four wide" style="background-color:#f0f0f0">Description</th>
+    <th class="three wide" style="background-color:#f0f0f0">Description</th>
     <th class="two wide" style="text-align:center; background-color:#f0f0f0 ">Price</th>
     <th class="two wide" style="text-align:center; background-color:#f0f0f0">Approver</th>
     <th class="two wide" style="text-align:center; background-color:#f0f0f0">Last Modified</th>

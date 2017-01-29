@@ -22,14 +22,14 @@
   </div>
 </div>
 
-<table class="ui striped celled fixed selectable padded table">
+<table class="ui striped celled selectable padded table">
   <thead>
     <tr>
     <!-- <th class="collapsing centered"> </th> -->
     <th class="three wide" style="background-color:#f0f0f0;">Building Name</th>
     <th class="six wide" style="background-color:#f0f0f0;">Description</th>
-    <th class="two wide" style="text-align:center; background-color:#f0f0f0">Action</th>
     <th class="two wide" style="text-align:center; background-color:#f0f0f0">Last Modified</th>
+    <th class="two wide" style="text-align:center; background-color:#f0f0f0">Action</th>
     </tr>
   </thead>
    <tbody> 

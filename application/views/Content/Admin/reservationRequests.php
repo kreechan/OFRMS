@@ -1,9 +1,10 @@
 <!-- Start of body content -->
-<div class="ui container" style="min-height: 300px;">
+<br><br>
+<div class="ui container" style="height:300px;">
 <h3 class="ui myinverted top attached header">
   RESERVATION REQUEST
 </h3>
-<div class="ui attached segment">
+<div class="ui attached segment" style="min-height: 80%;">
   <div class="ui three column grid stackable fluid computer only">
       <div class="column mycenter myinverted">ACTIVITY</div>
       <div class="column mycenter myinverted"></div>
@@ -12,23 +13,43 @@
    <?php
      foreach($req as $row):
     ?>
-  <div class="ui three column grid stackable fluid">
+  <?php if($row->reservation_status == null) { ?>
+     <div class="ui three column grid stackable fluid">
       <div class="column mycenter"><?=$row->activity?></div>
         <div class="column mycenter">
-          
-            <div class="ui detail-popup">
-                <button class="small  ui myinverted blue basic button item">View Details</button>
-            </div>
+         
+        <button class="small  ui myinverted blue basic button item" onClick="viewDetails(<?=$row->reserve_id?>)">View Details</button>
+           
         </div>
       <div class="column mycenter">
           <button class="ui mybutton button">APPROVED</button>
           <button class="ui negative button">DENY</button>
       </div>
   </div>
-   <?php endforeach ?>
+       <?php   }  ?>
+  <?php endforeach ?>
+   
 </div>
-  
+</div>
+<!--MODAL-->
+<div id="viewModal" class="ui modal">
+  <i class="close icon"></i>
+  <div class="">
+  </div>
+  <div class="content">
+   
+    <p>ID: <?=$row->reserve_id?></p>
+    <p>ACTIVITY: <?=$row->activity?></p>
+    <p>HALL: <?=$row->hall_name?></p>
+    <p>DEPARTMENT: <?=$row->department?></p>
+    <p>PURPOSE: <?=$row->purpose?></p>
+    <p>START: <?=$row->event_datetime?></p>
+    <p>END: <?=$row->event_endtime?></p>
+    <p>START: <?=$row->event_dateEnd?></p>
+  </div>
 </div>
 <script>
-
+   function viewDetails($id){
+        $('#viewModal').modal('show')
+   }
 </script>

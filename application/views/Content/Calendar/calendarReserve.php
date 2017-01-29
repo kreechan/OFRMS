@@ -47,7 +47,7 @@
               }).done(function(res){
                 $('#eventlist').html('')
                 $(res.data).each(function(i,v){
-                    if (v.reservation_status === null)
+                    if (v.reservation_status === "1")
                     {
                         $('#eventlist').append('<li>'+'<span style="font-weight: bolder;">ACTIVITY: '+v.activity+ '</span><br>' + 'DEPARTMENT: '+ v.department + '<br>'+'START DATE AND TIME: '+moment(v.event_datetime).format('MMMM DD, YYYY hh:mm A')+ '<br>'+'END DATE AND TIME: ' +moment(v.event_endtime).format('MMMM DD, YYYY hh:mm A')+'</li><div class="ui divider"></div>')
                     }
@@ -116,16 +116,9 @@
 }
 
 /*Turn pointer events back on*/
-.fc-bgevent,
 .fc-event-container{
-    pointer-events:auto; /*events*/
-text-align:;
-}
-    th span{
-        color:
-    }
-    a{
-        color:#353936; 
+ position: relative;
+    z-index: -1;
 }
 </style>
 <!--first modal-->

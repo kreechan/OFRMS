@@ -15,11 +15,12 @@
 
 <body class="">
 <div class="usc-bg">
-<div class="top-border"></div>
-<div class="ui container">
+
+<!--<div class="top-border"></div>-->
+
        
-<div class="ui menu stackable">
-    <a class="item" href="<?php echo base_url('main/welcomepage');?>">Home</a>
+<div class="ui menu inverted mymenu fixed stackable" >
+    <a  class="item" style="padding: 21.6808px;" href="<?php echo base_url('main/welcomepage');?>">Home</a>
     <a class="item">Calendar</a>
     <a class="item" href="<?php echo base_url('main/addReservation');?>"><i class="add to calendar icon"></i>Add Reservation</a>
     <div class="ui item floating dropdown"><i class="configure icon"></i>Manage Facility <i class="dropdown icon"></i>
@@ -32,18 +33,18 @@
     </div>
  
     <div class="right menu">
-      <div class="ui item floating dropdown">
-      <i class="user icon"></i>My Profile <i class="dropdown icon"></i>
-          <div class="menu transition hidden">
-            <a class="item" data-value="1" href="<?php echo base_url('main/myaccount'); ?>"><i class="settings icon"></i>My Account</a>
+      <div class="ui item floating dropdown" style="color:#;" >
+      <i  class="user icon"></i>My Profile <i class="dropdown icon"></i>
+          <div class="menu transition hidden" >
+            <a style=" border: 0px solid transparent;" class="item" data-value="1" href="<?php echo base_url('main/myaccount'); ?>"><i class="settings icon"></i>My Account</a>
             <a class="item" data-value="2" href="<?php echo base_url('main/changePass'); ?>">Change Password</a>
             <div class="ui divider"></div>
             <a href="<?php echo base_url('main/logout'); ?> " class="item" data-value="3"> <i class="power icon"></i>Logout</a>  
           </div>
       </div>
     </div>
-</div> 
-
+</div> <br><br><br><br>
+<div class="ui container" >
 <!-- End of top menu -->
 
 <script>
@@ -52,5 +53,10 @@
     $('#approve').click(function(){
        $('.ui.small.modal').modal('show');       
 });
+      $(window).bind('DOMContentLoaded load resize', function () {
+  if ($(window).innerWidth() <= 512) {
+    $('.mymenu').removeClass('fixed');
+  }
+ });
 });
 </script>
